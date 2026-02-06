@@ -1,0 +1,141 @@
+.add-product-container {
+    max-width: 800px;
+    margin: 3rem auto;
+    padding: 0 1rem;
+}
+
+.add-product-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.add-product-header h2 {
+    font-size: 2.5rem;
+    color: var(--primary-color, #2E7D32);
+    margin-bottom: 0.5rem;
+}
+
+.add-product-header p {
+    color: #666;
+    font-size: 1.1rem;
+}
+
+.add-product-card {
+    background: white;
+    padding: 2.5rem;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: #333;
+}
+
+.form-input,
+.form-select,
+.form-textarea {
+    width: 100%;
+    padding: 1rem;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    background: #fcfcfc;
+}
+
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+    outline: none;
+    border-color: var(--primary-color, #2E7D32);
+    box-shadow: 0 0 0 3px rgba(46, 125, 50, 0.1);
+    background: white;
+}
+
+.image-upload-area {
+    border: 2px dashed #e0e0e0;
+    border-radius: 12px;
+    padding: 2rem;
+    text-align: center;
+    transition: all 0.3s;
+    background: #fafafa;
+    cursor: pointer;
+}
+
+.image-upload-area:hover {
+    border-color: var(--primary-color, #2E7D32);
+    background: #f0f7f1;
+}
+
+.upload-icon {
+    font-size: 3rem;
+    color: #bdbdbd;
+    margin-bottom: 1rem;
+}
+
+.preview-image {
+    max-width: 100%;
+    max-height: 300px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.prediction-section {
+    background: linear-gradient(135deg, #f0f9ff 0%, #e1f5fe 100%);
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin-bottom: 2rem;
+    border: 1px solid #b3e5fc;
+}
+
+.prediction-btn {
+    background: #0288d1;
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.prediction-btn:hover {
+    background: #0277bd;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 1.2rem;
+    background: linear-gradient(to right, #2E7D32, #1b5e20);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(46, 125, 50, 0.3);
+}
+
+.grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+@media (max-width: 768px) {
+    .grid-2 {
+        grid-template-columns: 1fr;
+    }
+}

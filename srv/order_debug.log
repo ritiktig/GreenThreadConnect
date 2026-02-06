@@ -1,0 +1,82 @@
+[2026-02-02T12:30:27.585Z] Received createOrder: buyer=513e89c4-ea54-4f6e-9a1e-5658dbb3337c, address=8eb86fd8-51dc-4dbc-8935-8f7ea47a8317, items=[{"productId":"0a8594d2-4e32-40d9-81bc-b9fa2c17ef0e","quantity":1}]
+[2026-02-02T12:30:27.593Z] Total Amount: 300. Creating order...
+[ERROR] table green_thread_Orders has no column named shippingAddress_ID in:
+INSERT INTO green_thread_Orders (ID,createdAt,createdBy,modifiedAt,modifiedBy,buyer_ID,totalAmount,currency_code,status,shippingAddress_ID) SELECT value->>'$."ID"',(CASE WHEN json_type(value,'$."createdAt"') IS NULL THEN ISO(session_context('$now')) ELSE ISO(value->>'$."createdAt"') END),(CASE WHEN json_type(value,'$."createdBy"') IS NULL THEN session_context('$user.id') ELSE value->>'$."createdBy"' END),(CASE WHEN json_type(value,'$."modifiedAt"') IS NULL THEN ISO(session_context('$now')) ELSE ISO(value->>'$."modifiedAt"') END),(CASE WHEN json_type(value,'$."modifiedBy"') IS NULL THEN session_context('$user.id') ELSE value->>'$."modifiedBy"' END),value->>'$."buyer_ID"',value->>'$."totalAmount"',value->>'$."currency_code"',value->>'$."status"',value->>'$."shippingAddress_ID"' FROM json_each(?)
+SqliteError: table green_thread_Orders has no column named shippingAddress_ID in:
+INSERT INTO green_thread_Orders (ID,createdAt,createdBy,modifiedAt,modifiedBy,buyer_ID,totalAmount,currency_code,status,shippingAddress_ID) SELECT value->>'$."ID"',(CASE WHEN json_type(value,'$."createdAt"') IS NULL THEN ISO(session_context('$now')) ELSE ISO(value->>'$."createdAt"') END),(CASE WHEN json_type(value,'$."createdBy"') IS NULL THEN session_context('$user.id') ELSE value->>'$."createdBy"' END),(CASE WHEN json_type(value,'$."modifiedAt"') IS NULL THEN ISO(session_context('$now')) ELSE ISO(value->>'$."modifiedAt"') END),(CASE WHEN json_type(value,'$."modifiedBy"') IS NULL THEN session_context('$user.id') ELSE value->>'$."modifiedBy"' END),value->>'$."buyer_ID"',value->>'$."totalAmount"',value->>'$."currency_code"',value->>'$."status"',value->>'$."shippingAddress_ID"' FROM json_each(?)
+    at Database.prepare (C:\Users\HP\.gemini\antigravity\scratch\GreenThreadConnect\node_modules\better-sqlite3\lib\methods\wrappers.js:5:21)
+    at SQLiteService.prepare (C:\Users\HP\.gemini\antigravity\scratch\GreenThreadConnect\node_modules\@cap-js\sqlite\lib\SQLiteService.js:72:29)
+    at SQLiteService.onINSERT (C:\Users\HP\.gemini\antigravity\scratch\GreenThreadConnect\node_modules\@cap-js\db-service\lib\SQLService.js:194:27)
+    at SQLiteService.onINSERT (C:\Users\HP\.gemini\antigravity\scratch\GreenThreadConnect\node_modules\@cap-js\sqlite\lib\SQLiteService.js:294:26)
+    at next (C:\Users\HP\.gemini\antigravity\scratch\GreenThreadConnect\node_modules\@sap\cds\lib\srv\srv-dispatch.js:64:36)
+    at SQLiteService.onDeep (C:\Users\HP\.gemini\antigravity\scratch\GreenThreadConnect\node_modules\@cap-js\db-service\lib\deep-queries.js:42:31)
+    at next (C:\Users\HP\.gemini\antigravity\scratch\GreenThreadConnect\node_modules\@sap\cds\lib\srv\srv-dispatch.js:64:36)
+    at SQLiteService.fill_in_keys (C:\Users\HP\.gemini\antigravity\scratch\GreenThreadConnect\node_modules\@cap-js\db-service\lib\fill-in-keys.js:74:10)
+    at next (C:\Users\HP\.gemini\antigravity\scratch\GreenThreadConnect\node_modules\@sap\cds\lib\srv\srv-dispatch.js:64:36)
+    at SQLiteService.handle (C:\Users\HP\.gemini\antigravity\scratch\GreenThreadConnect\node_modules\@sap\cds\lib\srv\srv-dispatch.js:68:6)
+[2026-02-02T12:31:40.707Z] Received createOrder: buyer=f9ed4a98-f195-4f8b-bad0-8fefe2bc44cc, address=fed7e940-7576-435b-ae70-a402e56ef8c9, items=[{"productId":"0a8594d2-4e32-40d9-81bc-b9fa2c17ef0e","quantity":1}]
+[2026-02-02T12:31:40.710Z] Total Amount: 300. Creating order...
+[ERROR] table green_thread_Orders has no column named shippingAddress_ID in:
+INSERT INTO green_thread_Orders (ID,createdAt,createdBy,modifiedAt,modifiedBy,buyer_ID,totalAmount,currency_code,status,shippingAddress_ID) SELECT value->>'$."ID"',(CASE WHEN json_type(value,'$."createdAt"') IS NULL THEN ISO(session_context('$now')) ELSE ISO(value->>'$."createdAt"') END),(CASE WHEN json_type(value,'$."createdBy"') IS NULL THEN session_context('$user.id') ELSE value->>'$."createdBy"' END),(CASE WHEN json_type(value,'$."modifiedAt"') IS NULL THEN ISO(session_context('$now')) ELSE ISO(value->>'$."modifiedAt"') END),(CASE WHEN json_type(value,'$."modifiedBy"') IS NULL THEN session_context('$user.id') ELSE value->>'$."modifiedBy"' END),value->>'$."buyer_ID"',value->>'$."totalAmount"',value->>'$."currency_code"',value->>'$."status"',value->>'$."shippingAddress_ID"' FROM json_each(?)
+SqliteError: table green_thread_Orders has no column named shippingAddress_ID in:
+INSERT INTO green_thread_Orders (ID,createdAt,createdBy,modifiedAt,modifiedBy,buyer_ID,totalAmount,currency_code,status,shippingAddress_ID) SELECT value->>'$."ID"',(CASE WHEN json_type(value,'$."createdAt"') IS NULL THEN ISO(session_context('$now')) ELSE ISO(value->>'$."createdAt"') END),(CASE WHEN json_type(value,'$."createdBy"') IS NULL THEN session_context('$user.id') ELSE value->>'$."createdBy"' END),(CASE WHEN json_type(value,'$."modifiedAt"') IS NULL THEN ISO(session_context('$now')) ELSE ISO(value->>'$."modifiedAt"') END),(CASE WHEN json_type(value,'$."modifiedBy"') IS NULL THEN session_context('$user.id') ELSE value->>'$."modifiedBy"' END),value->>'$."buyer_ID"',value->>'$."totalAmount"',value->>'$."currency_code"',value->>'$."status"',value->>'$."shippingAddress_ID"' FROM json_each(?)
+    at Database.prepare (C:\Users\HP\.gemini\antigravity\scratch\GreenThreadConnect\node_modules\better-sqlite3\lib\methods\wrappers.js:5:21)
+    at SQLiteService.prepare (C:\Users\HP\.gemini\antigravity\scratch\GreenThreadConnect\node_modules\@cap-js\sqlite\lib\SQLiteService.js:72:29)
+    at SQLiteService.onINSERT (C:\Users\HP\.gemini\antigravity\scratch\GreenThreadConnect\node_modules\@cap-js\db-service\lib\SQLService.js:194:27)
+    at SQLiteService.onINSERT (C:\Users\HP\.gemini\antigravity\scratch\GreenThreadConnect\node_modules\@cap-js\sqlite\lib\SQLiteService.js:294:26)
+    at next (C:\Users\HP\.gemini\antigravity\scratch\GreenThreadConnect\node_modules\@sap\cds\lib\srv\srv-dispatch.js:64:36)
+    at SQLiteService.onDeep (C:\Users\HP\.gemini\antigravity\scratch\GreenThreadConnect\node_modules\@cap-js\db-service\lib\deep-queries.js:42:31)
+    at next (C:\Users\HP\.gemini\antigravity\scratch\GreenThreadConnect\node_modules\@sap\cds\lib\srv\srv-dispatch.js:64:36)
+    at SQLiteService.fill_in_keys (C:\Users\HP\.gemini\antigravity\scratch\GreenThreadConnect\node_modules\@cap-js\db-service\lib\fill-in-keys.js:74:10)
+    at next (C:\Users\HP\.gemini\antigravity\scratch\GreenThreadConnect\node_modules\@sap\cds\lib\srv\srv-dispatch.js:64:36)
+    at SQLiteService.handle (C:\Users\HP\.gemini\antigravity\scratch\GreenThreadConnect\node_modules\@sap\cds\lib\srv\srv-dispatch.js:68:6)
+[2026-02-02T12:36:59.670Z] Received createOrder: buyer=f9ed4a98-f195-4f8b-bad0-8fefe2bc44cc, address=fed7e940-7576-435b-ae70-a402e56ef8c9, items=[{"productId":"0a8594d2-4e32-40d9-81bc-b9fa2c17ef0e","quantity":1}]
+[2026-02-02T12:36:59.674Z] Total Amount: 300. Creating order...
+[ERROR] table green_thread_Orders has no column named shippingAddress_ID in:
+INSERT INTO green_thread_Orders (ID,createdAt,createdBy,modifiedAt,modifiedBy,buyer_ID,totalAmount,currency_code,status,shippingAddress_ID) SELECT value->>'$."ID"',(CASE WHEN json_type(value,'$."createdAt"') IS NULL THEN ISO(session_context('$now')) ELSE ISO(value->>'$."createdAt"') END),(CASE WHEN json_type(value,'$."createdBy"') IS NULL THEN session_context('$user.id') ELSE value->>'$."createdBy"' END),(CASE WHEN json_type(value,'$."modifiedAt"') IS NULL THEN ISO(session_context('$now')) ELSE ISO(value->>'$."modifiedAt"') END),(CASE WHEN json_type(value,'$."modifiedBy"') IS NULL THEN session_context('$user.id') ELSE value->>'$."modifiedBy"' END),value->>'$."buyer_ID"',value->>'$."totalAmount"',value->>'$."currency_code"',value->>'$."status"',value->>'$."shippingAddress_ID"' FROM json_each(?)
+SqliteError: table green_thread_Orders has no column named shippingAddress_ID in:
+INSERT INTO green_thread_Orders (ID,createdAt,createdBy,modifiedAt,modifiedBy,buyer_ID,totalAmount,currency_code,status,shippingAddress_ID) SELECT value->>'$."ID"',(CASE WHEN json_type(value,'$."createdAt"') IS NULL THEN ISO(session_context('$now')) ELSE ISO(value->>'$."createdAt"') END),(CASE WHEN json_type(value,'$."createdBy"') IS NULL THEN session_context('$user.id') ELSE value->>'$."createdBy"' END),(CASE WHEN json_type(value,'$."modifiedAt"') IS NULL THEN ISO(session_context('$now')) ELSE ISO(value->>'$."modifiedAt"') END),(CASE WHEN json_type(value,'$."modifiedBy"') IS NULL THEN session_context('$user.id') ELSE value->>'$."modifiedBy"' END),value->>'$."buyer_ID"',value->>'$."totalAmount"',value->>'$."currency_code"',value->>'$."status"',value->>'$."shippingAddress_ID"' FROM json_each(?)
+    at Database.prepare (C:\Users\HP\.gemini\antigravity\scratch\GreenThreadConnect\node_modules\better-sqlite3\lib\methods\wrappers.js:5:21)
+    at SQLiteService.prepare (C:\Users\HP\.gemini\antigravity\scratch\GreenThreadConnect\node_modules\@cap-js\sqlite\lib\SQLiteService.js:72:29)
+    at SQLiteService.onINSERT (C:\Users\HP\.gemini\antigravity\scratch\GreenThreadConnect\node_modules\@cap-js\db-service\lib\SQLService.js:194:27)
+    at SQLiteService.onINSERT (C:\Users\HP\.gemini\antigravity\scratch\GreenThreadConnect\node_modules\@cap-js\sqlite\lib\SQLiteService.js:294:26)
+    at next (C:\Users\HP\.gemini\antigravity\scratch\GreenThreadConnect\node_modules\@sap\cds\lib\srv\srv-dispatch.js:64:36)
+    at SQLiteService.onDeep (C:\Users\HP\.gemini\antigravity\scratch\GreenThreadConnect\node_modules\@cap-js\db-service\lib\deep-queries.js:42:31)
+    at next (C:\Users\HP\.gemini\antigravity\scratch\GreenThreadConnect\node_modules\@sap\cds\lib\srv\srv-dispatch.js:64:36)
+    at SQLiteService.fill_in_keys (C:\Users\HP\.gemini\antigravity\scratch\GreenThreadConnect\node_modules\@cap-js\db-service\lib\fill-in-keys.js:74:10)
+    at next (C:\Users\HP\.gemini\antigravity\scratch\GreenThreadConnect\node_modules\@sap\cds\lib\srv\srv-dispatch.js:64:36)
+    at SQLiteService.handle (C:\Users\HP\.gemini\antigravity\scratch\GreenThreadConnect\node_modules\@sap\cds\lib\srv\srv-dispatch.js:68:6)
+[2026-02-02T12:37:02.997Z] Received createOrder: buyer=f9ed4a98-f195-4f8b-bad0-8fefe2bc44cc, address=fed7e940-7576-435b-ae70-a402e56ef8c9, items=[{"productId":"0a8594d2-4e32-40d9-81bc-b9fa2c17ef0e","quantity":1}]
+[2026-02-02T12:37:03.003Z] Total Amount: 300. Creating order...
+[ERROR] table green_thread_Orders has no column named shippingAddress_ID in:
+INSERT INTO green_thread_Orders (ID,createdAt,createdBy,modifiedAt,modifiedBy,buyer_ID,totalAmount,currency_code,status,shippingAddress_ID) SELECT value->>'$."ID"',(CASE WHEN json_type(value,'$."createdAt"') IS NULL THEN ISO(session_context('$now')) ELSE ISO(value->>'$."createdAt"') END),(CASE WHEN json_type(value,'$."createdBy"') IS NULL THEN session_context('$user.id') ELSE value->>'$."createdBy"' END),(CASE WHEN json_type(value,'$."modifiedAt"') IS NULL THEN ISO(session_context('$now')) ELSE ISO(value->>'$."modifiedAt"') END),(CASE WHEN json_type(value,'$."modifiedBy"') IS NULL THEN session_context('$user.id') ELSE value->>'$."modifiedBy"' END),value->>'$."buyer_ID"',value->>'$."totalAmount"',value->>'$."currency_code"',value->>'$."status"',value->>'$."shippingAddress_ID"' FROM json_each(?)
+SqliteError: table green_thread_Orders has no column named shippingAddress_ID in:
+INSERT INTO green_thread_Orders (ID,createdAt,createdBy,modifiedAt,modifiedBy,buyer_ID,totalAmount,currency_code,status,shippingAddress_ID) SELECT value->>'$."ID"',(CASE WHEN json_type(value,'$."createdAt"') IS NULL THEN ISO(session_context('$now')) ELSE ISO(value->>'$."createdAt"') END),(CASE WHEN json_type(value,'$."createdBy"') IS NULL THEN session_context('$user.id') ELSE value->>'$."createdBy"' END),(CASE WHEN json_type(value,'$."modifiedAt"') IS NULL THEN ISO(session_context('$now')) ELSE ISO(value->>'$."modifiedAt"') END),(CASE WHEN json_type(value,'$."modifiedBy"') IS NULL THEN session_context('$user.id') ELSE value->>'$."modifiedBy"' END),value->>'$."buyer_ID"',value->>'$."totalAmount"',value->>'$."currency_code"',value->>'$."status"',value->>'$."shippingAddress_ID"' FROM json_each(?)
+    at Database.prepare (C:\Users\HP\.gemini\antigravity\scratch\GreenThreadConnect\node_modules\better-sqlite3\lib\methods\wrappers.js:5:21)
+    at SQLiteService.prepare (C:\Users\HP\.gemini\antigravity\scratch\GreenThreadConnect\node_modules\@cap-js\sqlite\lib\SQLiteService.js:72:29)
+    at SQLiteService.onINSERT (C:\Users\HP\.gemini\antigravity\scratch\GreenThreadConnect\node_modules\@cap-js\db-service\lib\SQLService.js:194:27)
+    at SQLiteService.onINSERT (C:\Users\HP\.gemini\antigravity\scratch\GreenThreadConnect\node_modules\@cap-js\sqlite\lib\SQLiteService.js:294:26)
+    at next (C:\Users\HP\.gemini\antigravity\scratch\GreenThreadConnect\node_modules\@sap\cds\lib\srv\srv-dispatch.js:64:36)
+    at SQLiteService.onDeep (C:\Users\HP\.gemini\antigravity\scratch\GreenThreadConnect\node_modules\@cap-js\db-service\lib\deep-queries.js:42:31)
+    at next (C:\Users\HP\.gemini\antigravity\scratch\GreenThreadConnect\node_modules\@sap\cds\lib\srv\srv-dispatch.js:64:36)
+    at SQLiteService.fill_in_keys (C:\Users\HP\.gemini\antigravity\scratch\GreenThreadConnect\node_modules\@cap-js\db-service\lib\fill-in-keys.js:74:10)
+    at next (C:\Users\HP\.gemini\antigravity\scratch\GreenThreadConnect\node_modules\@sap\cds\lib\srv\srv-dispatch.js:64:36)
+    at SQLiteService.handle (C:\Users\HP\.gemini\antigravity\scratch\GreenThreadConnect\node_modules\@sap\cds\lib\srv\srv-dispatch.js:68:6)
+[2026-02-02T12:40:52.536Z] Received createOrder: buyer=f9ed4a98-f195-4f8b-bad0-8fefe2bc44cc, address=fed7e940-7576-435b-ae70-a402e56ef8c9, items=[{"productId":"0a8594d2-4e32-40d9-81bc-b9fa2c17ef0e","quantity":1}]
+[2026-02-02T12:40:52.539Z] Product not found: 0a8594d2-4e32-40d9-81bc-b9fa2c17ef0e
+[ERROR] Cannot read properties of undefined (reading 'price')
+TypeError: Cannot read properties of undefined (reading 'price')
+    at ApplicationService.<anonymous> (C:\Users\HP\.gemini\antigravity\scratch\GreenThreadConnect\srv\service.js:168:44)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async next (C:\Users\HP\.gemini\antigravity\scratch\GreenThreadConnect\node_modules\@sap\cds\lib\srv\srv-dispatch.js:64:17)
+    at async ApplicationService.handle (C:\Users\HP\.gemini\antigravity\scratch\GreenThreadConnect\node_modules\@sap\cds\lib\srv\srv-dispatch.js:62:10)
+    at async ApplicationService.handle (C:\Users\HP\.gemini\antigravity\scratch\GreenThreadConnect\node_modules\@sap\cds\libx\_runtime\common\Service.js:81:16)
+[2026-02-02T12:48:48.554Z] Received createOrder: buyer=33b8f44e-bebc-4f83-bbcb-3a2d2ea460ca, address=325fdb4d-13b1-4457-9479-8fa869aa3922, items=[{"productId":"4b5e3b24-0a75-4d8a-9d5c-309ff2991c82","quantity":1}]
+[2026-02-02T12:48:48.567Z] Total Amount: 2000. Creating order...
+[2026-02-02T12:48:48.570Z] Order created: undefined
+[2026-02-02T12:58:08.598Z] Received createOrder: buyer=33b8f44e-bebc-4f83-bbcb-3a2d2ea460ca, address=325fdb4d-13b1-4457-9479-8fa869aa3922, items=[{"productId":"4b5e3b24-0a75-4d8a-9d5c-309ff2991c82","quantity":1}]
+[2026-02-02T12:58:08.611Z] Total Amount: 2000. Creating order...
+[2026-02-02T12:58:08.626Z] Order created: undefined
+[2026-02-02T13:00:34.539Z] Received createOrder: buyer=33b8f44e-bebc-4f83-bbcb-3a2d2ea460ca, address=325fdb4d-13b1-4457-9479-8fa869aa3922, items=[{"productId":"4b5e3b24-0a75-4d8a-9d5c-309ff2991c82","quantity":1}]
+[2026-02-02T13:00:34.543Z] Total Amount: 2000. Creating order...
+[2026-02-02T13:00:34.553Z] Order created: undefined

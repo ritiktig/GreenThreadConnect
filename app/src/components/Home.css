@@ -1,0 +1,319 @@
+/* Global Home Styles */
+.home-container {
+    width: 100%;
+    overflow-x: hidden;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Hero Section */
+.hero {
+    position: relative;
+    height: 90vh;
+    /* Full viewport height minus nav mostly */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+    overflow: hidden;
+}
+
+.hero-video-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    background-color: #1b262c;
+    /* Fallback color */
+}
+
+.hero-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Fade In Animation */
+.fade-in {
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* Overlay for readability */
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    /* Lighter overlay for green vibe */
+    z-index: 1;
+}
+
+.hero-content {
+    max-width: 1200px;
+    padding: 2rem;
+    z-index: 2;
+    /* Content above overlay */
+}
+
+.hero-subtitle {
+    display: inline-block;
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    padding: 0.5rem 1.5rem;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 2rem;
+    background: rgba(21, 87, 36, 0.6);
+    /* Forest Green transparent */
+    backdrop-filter: blur(5px);
+}
+
+.hero-title {
+    font-size: 5rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    text-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    font-family: 'Playfair Display', serif;
+}
+
+.hero-box {
+    background: rgba(255, 255, 255, 0.1);
+    /* Glassmorphism */
+    padding: 3rem;
+    border-radius: 16px;
+    max-width: 800px;
+    margin: 0 auto;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(15px);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+}
+
+.hero-box h2 {
+    font-size: 2.2rem;
+    color: #ffd700;
+    /* Gold */
+    margin-bottom: 1rem;
+    font-family: 'Playfair Display', serif;
+}
+
+.hero-box p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #f1f8e9;
+    /* Light Green White */
+    margin-bottom: 2.5rem;
+    font-weight: 300;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* Button Styles */
+button,
+.btn-primary,
+.btn-secondary,
+.btn-accent,
+.btn-large {
+    padding: 0.9rem 2.2rem;
+    border-radius: 50px;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn-primary {
+    background: #27ae60;
+    /* Emerald Green */
+    color: white;
+    box-shadow: 0 4px 15px rgba(39, 174, 96, 0.4);
+}
+
+.btn-secondary {
+    background: transparent;
+    border: 2px solid white;
+    color: white;
+}
+
+.btn-accent {
+    background: #f1c40f;
+    /* Vibrant Gold */
+    color: #2c3e50;
+    box-shadow: 0 4px 15px rgba(241, 196, 15, 0.4);
+}
+
+.btn-primary:hover {
+    background: #219150;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(39, 174, 96, 0.5);
+}
+
+.btn-accent:hover {
+    background: #f39c12;
+    transform: translateY(-3px);
+}
+
+.btn-secondary:hover {
+    background: white;
+    color: #27ae60;
+    transform: translateY(-3px);
+}
+
+/* Featured Section */
+.featured-section {
+    padding: 5rem 10%;
+    background: #ffffff;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 3rem;
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 1rem;
+}
+
+.section-header h2 {
+    font-size: 2.5rem;
+    color: #1b5e20;
+    /* Dark Green */
+    font-family: 'Playfair Display', serif;
+}
+
+.view-all-link {
+    color: #27ae60;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+    border-bottom: 2px solid transparent;
+    transition: all 0.3s;
+}
+
+.view-all-link:hover {
+    border-bottom: 2px solid #27ae60;
+}
+
+.preview-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2.5rem;
+}
+
+.preview-card {
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    cursor: pointer;
+    transition: all 0.4s ease;
+    border: 1px solid #f0f0f0;
+}
+
+.preview-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(39, 174, 96, 0.15);
+}
+
+.preview-img-wrapper {
+    height: 280px;
+    overflow: hidden;
+    position: relative;
+}
+
+.preview-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.preview-card:hover .preview-img-wrapper img {
+    transform: scale(1.1);
+}
+
+.preview-info {
+    padding: 1.5rem;
+    text-align: left;
+}
+
+.preview-info h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+    color: #2c3e50;
+    font-weight: 700;
+}
+
+.preview-info p {
+    color: #7f8c8d;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.preview-info .price {
+    font-weight: 700;
+    color: #27ae60;
+    /* Green Price */
+    font-size: 1.3rem;
+    display: block;
+}
+
+/* CTA Section */
+.cta-section {
+    background: linear-gradient(135deg, #1b5e20 0%, #2e7d32 100%);
+    /* Green Gradient */
+    color: white;
+    padding: 6rem 10%;
+    text-align: center;
+    position: relative;
+}
+
+.cta-content h2 {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    font-family: 'Playfair Display', serif;
+}
+
+.cta-content p {
+    color: #e8f5e9;
+    max-width: 600px;
+    margin: 0 auto 3rem auto;
+    font-size: 1.25rem;
+}
+
+.btn-large {
+    background: white;
+    color: #1b5e20;
+    padding: 1rem 3.5rem;
+    font-size: 1.2rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.btn-large:hover {
+    background: #f1f8e9;
+    transform: scale(1.05);
+}

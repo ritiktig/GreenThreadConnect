@@ -1,0 +1,36 @@
+{
+  "users": [
+    {
+      "id": "69821793e075ca1c0d8c435f",
+      "name": "Rita",
+      "email": "rita@gmail.com"
+    },
+    {
+      "id": "698217d1e075ca1c0d8c4362",
+      "name": "Ritik",
+      "email": "ritiktig61@gmail.com"
+    },
+    {
+      "id": "69821b20e075ca1c0d8c4422",
+      "name": "Verification User",
+      "email": "test1770134304521@example.com"
+    }
+  ],
+  "orders": [
+    {
+      "id": "6982223f215c522ccb2d620c",
+      "buyer": "698217d1e075ca1c0d8c4362",
+      "matchedBuyer": "Ritik",
+      "items": [
+        {
+          "product": "698218b9e075ca1c0d8c4374",
+          "quantity": 3,
+          "price": 1000,
+          "_id": "6982223f215c522ccb2d620d"
+        }
+      ],
+      "total": 3000,
+      "status": "Paid"
+    }
+  ]
+}

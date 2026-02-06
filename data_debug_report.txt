@@ -1,0 +1,8 @@
+=== SELLERS ===
+13788758-2900-410a-8869-388291410427 | Artisan Alice | alice@example.com
+705d836e-5231-4043-ba0b-333010471183 | Crafty Bob | bob@example.com
+5b3610ea-37c0-42d9-8bf1-dc9abd35b8b0 | Rita | rita@gmail.com
+
+=== PRODUCTS ===
+b7bb6e43-238c-4e90-b3a2-0a0ad0362597 | Dancing doll | Seller_ID: 9b02c48d-3120-4560-887b-75212ddd69ee | Valid Seller? NO
+ebc6880e-ad2d-41d9-9172-6ffe342ed885 | dancing doll | Seller_ID: 5b3610ea-37c0-42d9-8bf1-dc9abd35b8b0 | Valid Seller? YES

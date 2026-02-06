@@ -1,0 +1,7 @@
+requests
+beautifulsoup4
+pandas
+flask-cors
+numpy
+scikit-learn
+joblib

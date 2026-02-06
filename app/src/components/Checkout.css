@@ -1,0 +1,134 @@
+/* Checkout Container */
+.checkout-container {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    font-family: 'Inter', sans-serif;
+}
+
+.checkout-container h2 {
+    font-size: 1.8rem;
+    color: #1a1a1a;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+}
+
+.checkout-container h3 {
+    font-size: 1.4rem;
+    color: #2d3748;
+    margin-bottom: 1rem;
+}
+
+/* Steps Indicator */
+.steps {
+    font-size: 1.1rem;
+    letter-spacing: 0.5px;
+}
+
+/* Address List */
+.address-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.address-list>div {
+    transition: all 0.2s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.address-list>div:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.address-list strong {
+    display: block;
+    font-size: 1.1rem;
+    color: #2d3748;
+    margin-bottom: 0.5rem;
+}
+
+.address-list p {
+    color: #718096;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* Add Address Form */
+.add-address-form {
+    border: 1px solid #e2e8f0;
+    margin-top: 1rem;
+    animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.add-address-form input,
+.add-address-form select {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid #cbd5e0;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    transition: border-color 0.2s;
+}
+
+.add-address-form input:focus,
+.add-address-form select:focus {
+    outline: none;
+    border-color: #27ae60;
+    box-shadow: 0 0 0 3px rgba(39, 174, 96, 0.1);
+}
+
+/* Buttons */
+button {
+    transition: all 0.2s;
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+.checkout-container button[type="submit"] {
+    background: #27ae60;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.checkout-container button[type="submit"]:hover {
+    background: #219150;
+    box-shadow: 0 4px 12px rgba(39, 174, 96, 0.2);
+}
+
+/* Payment Options */
+.payment-options label {
+    transition: all 0.2s;
+}
+
+.payment-options label:hover {
+    background: #f7fafc;
+    border-color: #cbd5e0 !important;
+}
+
+.payment-options input[type="radio"] {
+    accent-color: #27ae60;
+    width: 1.2rem;
+    height: 1.2rem;
+}

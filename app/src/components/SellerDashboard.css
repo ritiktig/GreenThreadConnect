@@ -1,0 +1,241 @@
+/* SellerDashboard.css */
+
+:root {
+    --primary-green: #27ae60;
+    /* Emerald */
+    --light-green: #e8f5e9;
+    --accent-color: #f1c40f;
+    /* Gold */
+    --text-dark: #2c3e50;
+    --text-grey: #7f8c8d;
+    --bg-light: #f8f9fa;
+    --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    --hover-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    --transition-speed: 0.3s;
+}
+
+.dashboard {
+    padding: 2rem;
+    background-color: var(--bg-light);
+    min-height: 100vh;
+    font-family: 'Inter', sans-serif;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Header Section */
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2.5rem;
+    background: white;
+    padding: 1.5rem 2rem;
+    border-radius: 12px;
+    box-shadow: var(--card-shadow);
+    background: linear-gradient(135deg, #ffffff 0%, #f1f8e9 100%);
+}
+
+.dashboard-header h2 {
+    margin: 0;
+    color: var(--primary-green);
+    font-size: 1.8rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+.view-marketplace-btn {
+    background: linear-gradient(135deg, var(--primary-green) 0%, #1b5e20 100%);
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+.view-marketplace-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(46, 125, 50, 0.3);
+}
+
+/* Tabs */
+.tabs-container {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #eee;
+}
+
+.tab-btn {
+    background: transparent;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--text-grey);
+    cursor: pointer;
+    border-radius: 30px;
+    transition: all var(--transition-speed);
+    position: relative;
+}
+
+.tab-btn.active {
+    background-color: var(--primary-green);
+    color: white;
+    box-shadow: 0 4px 10px rgba(46, 125, 50, 0.2);
+    font-weight: 600;
+}
+
+.tab-btn:hover:not(.active) {
+    background-color: rgba(46, 125, 50, 0.1);
+    color: var(--primary-green);
+}
+
+/* Products Grid */
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 1rem;
+}
+
+.product-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--card-shadow);
+    transition: all var(--transition-speed);
+    border: 1px solid transparent;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--hover-shadow);
+    border-color: rgba(46, 125, 50, 0.2);
+}
+
+.card-image-container {
+    height: 200px;
+    overflow: hidden;
+    background: #f5f5f5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s;
+}
+
+.product-card:hover .card-image {
+    transform: scale(1.05);
+}
+
+.no-image-placeholder {
+    font-size: 3rem;
+    color: #bdc3c7;
+}
+
+.card-content {
+    padding: 1.5rem;
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 0.5rem;
+}
+
+.product-title {
+    margin: 0;
+    font-size: 1.15rem;
+    color: var(--text-dark);
+    font-weight: 600;
+    line-height: 1.4;
+}
+
+.product-price {
+    font-weight: 700;
+    color: var(--primary-green);
+    font-size: 1.1rem;
+}
+
+.product-stock {
+    font-size: 0.9rem;
+    color: var(--text-grey);
+    margin: 0.5rem 0 1.5rem 0;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.stock-indicator {
+    width: 8px;
+    height: 8px;
+    background-color: #27ae60;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.card-actions {
+    display: flex;
+    gap: 0.8rem;
+}
+
+.edit-btn {
+    flex: 1;
+    padding: 0.7rem;
+    border: 1px solid #dfe6e9;
+    background: white;
+    border-radius: 6px;
+    cursor: pointer;
+    color: var(--text-dark);
+    font-weight: 500;
+    transition: all 0.2s;
+}
+
+.edit-btn:hover {
+    background: #f8f9fa;
+    border-color: #b2bec3;
+}
+
+.delete-btn {
+    flex: 1;
+    padding: 0.7rem;
+    border: none;
+    background: #ffebee;
+    color: #c62828;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.2s;
+}
+
+.delete-btn:hover {
+    background: #ffcdd2;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    animation: fadeIn 0.4s ease-out forwards;
+}

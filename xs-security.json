@@ -1,0 +1,30 @@
+{
+  "xsappname": "green-thread-connect",
+  "tenant-mode": "dedicated",
+  "scopes": [
+    {
+      "name": "$XSAPPNAME.Seller",
+      "description": "Seller Scope"
+    },
+    {
+      "name": "$XSAPPNAME.Buyer",
+      "description": "Buyer Scope"
+    }
+  ],
+  "role-templates": [
+    {
+      "name": "SellerRole",
+      "description": "Role for Sellers",
+      "scope-references": [
+        "$XSAPPNAME.Seller"
+      ]
+    },
+    {
+      "name": "BuyerRole",
+      "description": "Role for Buyers",
+      "scope-references": [
+        "$XSAPPNAME.Buyer"
+      ]
+    }
+  ]
+}

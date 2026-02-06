@@ -1,0 +1,141 @@
+:root {
+  --primary-color: #2E7D32;
+  /* Forest Green */
+  --secondary-color: #81C784;
+  /* Light Green */
+  --accent-color: #FFB74D;
+  /* Earthy Orange */
+  --bg-color: #F1F8E9;
+  /* Very Light Green */
+  --text-color: #1B5E20;
+  /* Dark Green Text */
+  --card-bg: #FFFFFF;
+  --font-family: 'Inter', sans-serif;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-family);
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Navbar styles moved to Navbar.css */
+
+.dashboard,
+.storefront,
+.home {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.card,
+.product-card {
+  background: var(--card-bg);
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  margin-bottom: 1.5rem;
+  transition: transform 0.2s;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+}
+
+.product-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: flex-start;
+  /* Aligns items to the start */
+}
+
+.product-card {
+  flex: 1 1 250px;
+  /* Grow, shrink, basis */
+  max-width: 300px;
+  /* Prevent them from getting too wide */
+}
+
+button {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #1B5E20;
+}
+
+input,
+select {
+  padding: 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  margin-right: 1rem;
+  margin-bottom: 1rem;
+  width: 100%;
+  max-width: 300px;
+}
+
+.filters button {
+  background-color: transparent;
+  color: var(--text-color);
+  border: 1px solid var(--primary-color);
+  margin-right: 0.5rem;
+}
+
+.filters button.active {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.featured {
+  border: 2px solid var(--accent-color);
+  position: relative;
+}
+
+.badge {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background-color: var(--accent-color);
+  color: white;
+  padding: 0.2rem 0.8rem;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+.home {
+  text-align: center;
+  margin-top: 3rem;
+}
+
+.home h1 {
+  font-size: 3rem;
+  color: var(--primary-color);
+}
+
+.cta-buttons {
+  margin-top: 2rem;
+}
+
+.cta-buttons .btn {
+  display: inline-block;
+  background-color: var(--primary-color);
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  text-decoration: none;
+  margin: 0 1rem;
+  font-size: 1.2rem;
+}
