@@ -1,12 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './BuyerStorefront.css';
+import ProductDetails from './ProductDetails';
+import { useCurrency } from '../context/CurrencyContext';
 
 function BuyerStorefront({ addToCart }) {
+  const { formatPrice } = useCurrency();
   const [products, setProducts] = useState([]);
   const [recommendations, setRecommendations] = useState([]);
+  
+
   const [category, setCategory] = useState('All');
   const [searchQuery, setSearchQuery] = useState('');
+  const [selectedProduct, setSelectedProduct] = useState(null);
 
   // Mock Data Loading
   useEffect(() => {
@@ -70,7 +76,7 @@ function BuyerStorefront({ addToCart }) {
             <h3 className="section-title">✨ Selected For You</h3>
             <div className="products-grid">
               {recommendations.map(prod => (
-                <div key={`rec-${prod._id}`} className="store-card">
+                <div key={`rec-${prod._id}`} className="store-card" onClick={() => setSelectedProduct(prod)}>
                   <div className="store-card-img-wrapper">
                     <div className="badge-overlay">Top Pick</div>
                     <img src={prod.imageUrl || 'https://via.placeholder.com/300'} alt={prod.name} className="store-card-img" />
@@ -80,8 +86,8 @@ function BuyerStorefront({ addToCart }) {
                     <p className="store-card-artisan">By: {prod.seller ? prod.seller.name : 'Unknown Artisan'}</p>
                     <p className="store-card-category">{prod.category}</p>
                     <div className="store-card-bottom">
-                      <span className="store-card-price">${prod.price}</span>
-                      <button className="add-btn" onClick={() => addToCart(prod)}>+ Add</button>
+                      <span className="store-card-price">{formatPrice(prod.price)}</span>
+                      <button className="add-btn" onClick={(e) => { e.stopPropagation(); addToCart(prod); }}>+ Add</button>
                     </div>
                   </div>
                 </div>
@@ -95,7 +101,7 @@ function BuyerStorefront({ addToCart }) {
           <h3 className="section-title">Browse Collection</h3>
           <div className="products-grid">
             {filteredProducts.map(prod => (
-              <div key={prod._id} className="store-card">
+              <div key={prod._id} className="store-card" onClick={() => setSelectedProduct(prod)}>
                  <div className="store-card-img-wrapper">
                     <img src={prod.imageUrl || 'https://via.placeholder.com/300'} alt={prod.name} className="store-card-img" />
                   </div>
@@ -104,8 +110,8 @@ function BuyerStorefront({ addToCart }) {
                      <p className="store-card-artisan">By: {prod.seller ? prod.seller.name : 'Unknown Artisan'}</p>
                     <p className="store-card-category">{prod.category || 'Artisan'}</p>
                     <div className="store-card-bottom">
-                      <span className="store-card-price">${prod.price}</span>
-                      <button className="add-btn" onClick={() => addToCart(prod)}>+ Add</button>
+                      <span className="store-card-price">{formatPrice(prod.price)}</span>
+                      <button className="add-btn" onClick={(e) => { e.stopPropagation(); addToCart(prod); }}>+ Add</button>
                     </div>
                   </div>
               </div>
@@ -113,6 +119,17 @@ function BuyerStorefront({ addToCart }) {
           </div>
         </section>
       </div>
+
+      {selectedProduct && (
+        <ProductDetails 
+            product={selectedProduct} 
+            onClose={() => setSelectedProduct(null)} 
+            onAddToCart={() => {
+                addToCart(selectedProduct);
+                setSelectedProduct(null);
+            }} 
+        />
+      )}
     </div>
   );
 }

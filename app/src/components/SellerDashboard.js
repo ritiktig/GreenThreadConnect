@@ -4,9 +4,11 @@ import axios from 'axios';
 import SellerAnalytics from './SellerAnalytics';
 import SellerOrders from './SellerOrders';
 import SellerHistory from './SellerHistory';
+import { useCurrency } from '../context/CurrencyContext';
 import './SellerDashboard.css';
 
 function SellerDashboard() {
+  const { formatPrice } = useCurrency();
   const [activeTab, setActiveTab] = useState('overview'); // 'overview', 'products', 'orders'
   const [myProducts, setMyProducts] = useState([]);
 
@@ -99,8 +101,13 @@ function SellerDashboard() {
                           <div className="card-content">
                               <div className="card-header">
                                   <h4 className="product-title">{p.name}</h4>
-                                  <span className="product-price">${p.price}</span>
+                                  <span className="product-price">{formatPrice(p.price)}</span>
                               </div>
+                              {p.carbonFootprint && (
+                                  <div style={{ fontSize: '0.85rem', color: '#2e7d32', marginBottom: '0.5rem' }}>
+                                      🌱 {Number(p.carbonFootprint).toFixed(1)} kg CO2e
+                                  </div>
+                              )}
                               <div className="product-stock">
                                   <span className="stock-indicator"></span>
                                   {p.stock} in stock

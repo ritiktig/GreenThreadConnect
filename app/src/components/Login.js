@@ -53,7 +53,7 @@ function Login() {
   return (
     <div className="login-container">
       <div className="login-card">
-        <h2>Welcome to Kala Bazzar</h2>
+        <h2>Welcome to GreenThreadConnect</h2>
         
         {!selectedRole ? (
             <>
@@ -95,7 +95,7 @@ function Login() {
         )}
 
         <p style={{ marginTop: '2rem' }}>
-            New to Kala Bazzar? <Link to="/signup">Create an Account</Link>
+            New to GreenThreadConnect? <Link to="/signup">Create an Account</Link>
         </p>
       </div>
     </div>

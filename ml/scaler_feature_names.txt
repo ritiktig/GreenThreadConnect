@@ -1,0 +1,17 @@
+product_weight_kg
+handmade_level
+material_quantity_kg
+recycled_material_percent
+organic_material
+production_time_hours
+units_per_batch
+energy_used_kwh
+renewable_energy_percent
+transport_distance_km
+transport_load_kg
+local_or_export
+packaging_weight_kg
+recyclable_packaging
+material_efficiency
+production_efficiency
+total_recycled_material_kg

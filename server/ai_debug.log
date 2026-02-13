@@ -1,0 +1,449 @@
+
+[2026-02-08T12:03:04.507Z] Request received. Message: hello4
+API Key present: true
+Sending message to Gemini...
+ERROR: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent: [404 Not Found] models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+STACK: Error: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent: [404 Not Found] models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+    at handleResponseNotOk (C:\Users\HP\.gemini\antigravity\scratch\GreenThreadConnect\server\node_modules\@google\generative-ai\dist\index.js:434:11)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async makeRequest (C:\Users\HP\.gemini\antigravity\scratch\GreenThreadConnect\server\node_modules\@google\generative-ai\dist\index.js:403:9)
+    at async generateContent (C:\Users\HP\.gemini\antigravity\scratch\GreenThreadConnect\server\node_modules\@google\generative-ai\dist\index.js:867:22)
+    at async ChatSession.sendMessage (C:\Users\HP\.gemini\antigravity\scratch\GreenThreadConnect\server\node_modules\@google\generative-ai\dist\index.js:1210:9)
+    at async C:\Users\HP\.gemini\antigravity\scratch\GreenThreadConnect\server\routes\ai.js:79:24
+
+[2026-02-08T12:06:15.583Z] Request received. Message: hello
+API Key present: true
+Sending message to Gemini...
+ERROR: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent: [404 Not Found] models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+STACK: Error: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent: [404 Not Found] models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+    at handleResponseNotOk (C:\Users\HP\.gemini\antigravity\scratch\GreenThreadConnect\server\node_modules\@google\generative-ai\dist\index.js:434:11)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async makeRequest (C:\Users\HP\.gemini\antigravity\scratch\GreenThreadConnect\server\node_modules\@google\generative-ai\dist\index.js:403:9)
+    at async generateContent (C:\Users\HP\.gemini\antigravity\scratch\GreenThreadConnect\server\node_modules\@google\generative-ai\dist\index.js:867:22)
+    at async ChatSession.sendMessage (C:\Users\HP\.gemini\antigravity\scratch\GreenThreadConnect\server\node_modules\@google\generative-ai\dist\index.js:1210:9)
+    at async C:\Users\HP\.gemini\antigravity\scratch\GreenThreadConnect\server\routes\ai.js:79:24
+
+[2026-02-08T12:10:16.550Z] Request received. Message: hello
+API Key present: true
+Sending message to Gemini...
+ERROR: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent: [404 Not Found] models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+STACK: Error: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent: [404 Not Found] models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+    at handleResponseNotOk (C:\Users\HP\.gemini\antigravity\scratch\GreenThreadConnect\server\node_modules\@google\generative-ai\dist\index.js:434:11)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async makeRequest (C:\Users\HP\.gemini\antigravity\scratch\GreenThreadConnect\server\node_modules\@google\generative-ai\dist\index.js:403:9)
+    at async generateContent (C:\Users\HP\.gemini\antigravity\scratch\GreenThreadConnect\server\node_modules\@google\generative-ai\dist\index.js:867:22)
+    at async ChatSession.sendMessage (C:\Users\HP\.gemini\antigravity\scratch\GreenThreadConnect\server\node_modules\@google\generative-ai\dist\index.js:1210:9)
+    at async C:\Users\HP\.gemini\antigravity\scratch\GreenThreadConnect\server\routes\ai.js:79:24
+
+[2026-02-08T12:13:54.939Z] Request received. Message: hello
+API Key present: true
+Sending message to Gemini...
+ERROR: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent: [404 Not Found] models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+STACK: Error: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent: [404 Not Found] models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+    at handleResponseNotOk (C:\Users\HP\.gemini\antigravity\scratch\GreenThreadConnect\server\node_modules\@google\generative-ai\dist\index.js:434:11)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async makeRequest (C:\Users\HP\.gemini\antigravity\scratch\GreenThreadConnect\server\node_modules\@google\generative-ai\dist\index.js:403:9)
+    at async generateContent (C:\Users\HP\.gemini\antigravity\scratch\GreenThreadConnect\server\node_modules\@google\generative-ai\dist\index.js:867:22)
+    at async ChatSession.sendMessage (C:\Users\HP\.gemini\antigravity\scratch\GreenThreadConnect\server\node_modules\@google\generative-ai\dist\index.js:1210:9)
+    at async C:\Users\HP\.gemini\antigravity\scratch\GreenThreadConnect\server\routes\ai.js:79:24
+
+[2026-02-08T12:18:13.956Z] Request received. Message: hii
+API Key present: true
+Sending message to Gemini...
+ERROR: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent: [404 Not Found] models/gemini-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+STACK: Error: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent: [404 Not Found] models/gemini-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+    at handleResponseNotOk (C:\Users\HP\.gemini\antigravity\scratch\GreenThreadConnect\server\node_modules\@google\generative-ai\dist\index.js:434:11)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async makeRequest (C:\Users\HP\.gemini\antigravity\scratch\GreenThreadConnect\server\node_modules\@google\generative-ai\dist\index.js:403:9)
+    at async generateContent (C:\Users\HP\.gemini\antigravity\scratch\GreenThreadConnect\server\node_modules\@google\generative-ai\dist\index.js:867:22)
+    at async ChatSession.sendMessage (C:\Users\HP\.gemini\antigravity\scratch\GreenThreadConnect\server\node_modules\@google\generative-ai\dist\index.js:1210:9)
+    at async C:\Users\HP\.gemini\antigravity\scratch\GreenThreadConnect\server\routes\ai.js:79:24
+
+[2026-02-08T12:42:59.292Z] Request received. Message: hello
+API Key present: true
+Sending message to Gemini...
+ERROR: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-pro:generateContent: [404 Not Found] models/gemini-1.5-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+STACK: Error: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-pro:generateContent: [404 Not Found] models/gemini-1.5-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+    at handleResponseNotOk (C:\Users\HP\.gemini\antigravity\scratch\GreenThreadConnect\server\node_modules\@google\generative-ai\dist\index.js:434:11)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async makeRequest (C:\Users\HP\.gemini\antigravity\scratch\GreenThreadConnect\server\node_modules\@google\generative-ai\dist\index.js:403:9)
+    at async generateContent (C:\Users\HP\.gemini\antigravity\scratch\GreenThreadConnect\server\node_modules\@google\generative-ai\dist\index.js:867:22)
+    at async ChatSession.sendMessage (C:\Users\HP\.gemini\antigravity\scratch\GreenThreadConnect\server\node_modules\@google\generative-ai\dist\index.js:1210:9)
+    at async C:\Users\HP\.gemini\antigravity\scratch\GreenThreadConnect\server\routes\ai.js:82:24
+
+[2026-02-08T12:52:52.723Z] Request received. Message: hello
+API Key present: true
+Sending message to Gemini...
+ERROR: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-pro:generateContent: [404 Not Found] models/gemini-1.5-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+STACK: Error: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-pro:generateContent: [404 Not Found] models/gemini-1.5-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+    at handleResponseNotOk (C:\Users\HP\.gemini\antigravity\scratch\GreenThreadConnect\server\node_modules\@google\generative-ai\dist\index.js:434:11)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async makeRequest (C:\Users\HP\.gemini\antigravity\scratch\GreenThreadConnect\server\node_modules\@google\generative-ai\dist\index.js:403:9)
+    at async generateContent (C:\Users\HP\.gemini\antigravity\scratch\GreenThreadConnect\server\node_modules\@google\generative-ai\dist\index.js:867:22)
+    at async ChatSession.sendMessage (C:\Users\HP\.gemini\antigravity\scratch\GreenThreadConnect\server\node_modules\@google\generative-ai\dist\index.js:1210:9)
+    at async C:\Users\HP\.gemini\antigravity\scratch\GreenThreadConnect\server\routes\ai.js:82:24
+
+[2026-02-09T18:24:32.213Z] Request received. Message: hello
+API Key present: true
+Sending message to Gemini...
+Gemini Response: {
+  "message": "Hello! Welcome to Green Thread Connect. How can I assist you with sustainable artisan products today?",
+  "action": "NONE",
+  "data": {}
+}
+
+[2026-02-09T18:25:07.036Z] Request received. Message: can you suggest so product made with bamboo
+API Key present: true
+Sending message to Gemini...
+Gemini Response: {
+  "message": "I'd be happy to help you find sustainable bamboo products! Searching our marketplace now...",
+  "action": "SEARCH_PRODUCTS",
+  "data": {
+    "query": "bamboo"
+  }
+}
+
+[2026-02-09T18:26:30.262Z] Request received. Message: can you help me create a seller account 
+API Key present: true
+Sending message to Gemini...
+Gemini Response: {
+  "message": "I'd love to help you join our community as a seller! Please provide your full name, email address, a secure password, and your region to get started.",
+  "action": "REGISTER_USER_INTENT",
+  "data": {
+    "role": "Seller"
+  }
+}
+
+[2026-02-09T18:27:08.546Z] Request received. Message: So my name is Ramis, my Gmail ID is ramesh@gmail.com.
+API Key present: true
+Sending message to Gemini...
+Gemini Response: {
+  "message": "Nice to meet you, Ramis! To finish setting up your account, please provide a password, your preferred role (Buyer or Seller), and your region.",
+  "action": "REGISTER_USER_INTENT",
+  "data": {
+    "name": "Ramis",
+    "email": "ramesh@gmail.com"
+  }
+}
+
+[2026-02-09T18:27:41.392Z] Request received. Message: password is 123456789
+API Key present: true
+Sending message to Gemini...
+
+[2026-02-09T18:27:46.773Z] Request received. Message: buyer
+API Key present: true
+Sending message to Gemini...
+Gemini Response: {
+  "message": "Thank you, Ramis! I have your name, email, and password. To complete your Seller registration, please tell me which region you are located in.",
+  "action": "REGISTER_USER_INTENT",
+  "data": {
+    "name": "Ramis",
+    "email": "ramesh@gmail.com",
+    "password": "123456789",
+    "role": "Seller",
+    "region": null
+  }
+}
+Gemini Response: {
+  "message": "Thanks, Ramis! I've noted your details. To complete your seller registration, please let me know which region you are located in.",
+  "action": "REGISTER_USER_INTENT",
+  "data": {
+    "name": "Ramis",
+    "email": "ramesh@gmail.com",
+    "password": "123456789buyer",
+    "role": "Seller"
+  }
+}
+
+[2026-02-09T18:28:17.144Z] Request received. Message: I am from Bangalore, Karnataka.
+API Key present: true
+Sending message to Gemini...
+Gemini Response: {
+  "message": "That's wonderful! Bangalore has a rich artisan heritage. Would you like to search for sustainable products in your area or create an account to get started?",
+  "action": "NONE"
+}
+
+[2026-02-09T18:28:40.079Z] Request received. Message: Create an account to start.
+API Key present: true
+Sending message to Gemini...
+Gemini Response: {
+  "message": "Great! Let's get you set up on Green Thread Connect. To create your account, I'll need your Name, Email, Password, Role (Buyer or Seller), and your Region.",
+  "action": "REGISTER_USER_INTENT",
+  "data": {}
+}
+
+[2026-02-09T18:30:15.755Z] Request received. Message: name is shayam ,eamil is shayam@gmail.com,password 123456789,Buyer
+API Key present: true
+Sending message to Gemini...
+Gemini Response: {
+  "message": "Thank you, Shayam! I have all your details. Let's get your Buyer account set up for Green Thread Connect.",
+  "action": "REGISTER_USER_INTENT",
+  "data": {
+    "name": "shayam",
+    "email": "shayam@gmail.com",
+    "password": "123456789",
+    "role": "Buyer",
+    "region": "Bangalore, Karnataka"
+  }
+}
+
+[2026-02-09T18:30:47.125Z] Request received. Message: setup the account 
+API Key present: true
+Sending message to Gemini...
+Gemini Response: {
+  "message": "Excellent! I'm setting up your account now, Shayam. Welcome to Green Thread Connect!",
+  "action": "REGISTER_USER_INTENT",
+  "data": {
+    "name": "Shayam",
+    "email": "shayam@gmail.com",
+    "password": "123456789",
+    "role": "Buyer",
+    "region": "Bangalore"
+  }
+}
+
+[2026-02-09T18:50:48.965Z] Request received. Message: Hello, are you working?
+API Key present: true
+Sending message to Gemini...
+Gemini Response: {
+  "message": "Hello! I'm here and ready to help. Would you like to browse our sustainable products, sign up, or login to your Green Thread Connect account?",
+  "action": "NONE"
+}
+
+[2026-02-09T18:52:14.866Z] Request received. Message: Hello, are you working?
+API Key present: true
+Sending message to Gemini...
+Gemini Response: {
+  "message": "Hello! Yes, I am online and ready to help. Welcome to Green Thread Connect. Are you interested in browsing our sustainable marketplace or setting up an account today?",
+  "action": "NONE",
+  "data": {}
+}
+
+[2026-02-09T18:53:37.033Z] Request received. Message: Hello
+API Key present: true
+Sending message to Gemini...
+Gemini Response: {
+  "message": "Hello! Welcome to Green Thread Connect. How can I assist you today? Are you looking to buy sustainable goods or sell your artisan products?",
+  "action": "NONE"
+}
+
+[2026-02-09T19:11:55.406Z] Request received. Message: Hello
+API Key present: false
+ERROR: API Key is missing in environment variables
+STACK: Error: API Key is missing in environment variables
+    at C:\Users\HP\.gemini\antigravity\scratch\GreenThreadConnect\server\routes\ai.js:52:19
+    at Layer.handleRequest (C:\Users\HP\.gemini\antigravity\scratch\GreenThreadConnect\server\node_modules\router\lib\layer.js:152:17)
+    at next (C:\Users\HP\.gemini\antigravity\scratch\GreenThreadConnect\server\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (C:\Users\HP\.gemini\antigravity\scratch\GreenThreadConnect\server\node_modules\router\lib\route.js:117:3)
+    at handle (C:\Users\HP\.gemini\antigravity\scratch\GreenThreadConnect\server\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (C:\Users\HP\.gemini\antigravity\scratch\GreenThreadConnect\server\node_modules\router\lib\layer.js:152:17)
+    at C:\Users\HP\.gemini\antigravity\scratch\GreenThreadConnect\server\node_modules\router\index.js:295:15
+    at processParams (C:\Users\HP\.gemini\antigravity\scratch\GreenThreadConnect\server\node_modules\router\index.js:582:12)
+    at next (C:\Users\HP\.gemini\antigravity\scratch\GreenThreadConnect\server\node_modules\router\index.js:291:5)
+    at Function.handle (C:\Users\HP\.gemini\antigravity\scratch\GreenThreadConnect\server\node_modules\router\index.js:186:3)
+
+[2026-02-09T19:12:36.050Z] Request received. Message: Hello
+API Key present: false
+ERROR: API Key is missing in environment variables
+STACK: Error: API Key is missing in environment variables
+    at C:\Users\HP\.gemini\antigravity\scratch\GreenThreadConnect\server\routes\ai.js:52:19
+    at Layer.handleRequest (C:\Users\HP\.gemini\antigravity\scratch\GreenThreadConnect\server\node_modules\router\lib\layer.js:152:17)
+    at next (C:\Users\HP\.gemini\antigravity\scratch\GreenThreadConnect\server\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (C:\Users\HP\.gemini\antigravity\scratch\GreenThreadConnect\server\node_modules\router\lib\route.js:117:3)
+    at handle (C:\Users\HP\.gemini\antigravity\scratch\GreenThreadConnect\server\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (C:\Users\HP\.gemini\antigravity\scratch\GreenThreadConnect\server\node_modules\router\lib\layer.js:152:17)
+    at C:\Users\HP\.gemini\antigravity\scratch\GreenThreadConnect\server\node_modules\router\index.js:295:15
+    at processParams (C:\Users\HP\.gemini\antigravity\scratch\GreenThreadConnect\server\node_modules\router\index.js:582:12)
+    at next (C:\Users\HP\.gemini\antigravity\scratch\GreenThreadConnect\server\node_modules\router\index.js:291:5)
+    at Function.handle (C:\Users\HP\.gemini\antigravity\scratch\GreenThreadConnect\server\node_modules\router\index.js:186:3)
+
+[2026-02-09T19:13:28.795Z] Request received. Message: Hello
+API Key present: false
+ERROR: API Key is missing in environment variables
+STACK: Error: API Key is missing in environment variables
+    at C:\Users\HP\.gemini\antigravity\scratch\GreenThreadConnect\server\routes\ai.js:52:19
+    at Layer.handleRequest (C:\Users\HP\.gemini\antigravity\scratch\GreenThreadConnect\server\node_modules\router\lib\layer.js:152:17)
+    at next (C:\Users\HP\.gemini\antigravity\scratch\GreenThreadConnect\server\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (C:\Users\HP\.gemini\antigravity\scratch\GreenThreadConnect\server\node_modules\router\lib\route.js:117:3)
+    at handle (C:\Users\HP\.gemini\antigravity\scratch\GreenThreadConnect\server\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (C:\Users\HP\.gemini\antigravity\scratch\GreenThreadConnect\server\node_modules\router\lib\layer.js:152:17)
+    at C:\Users\HP\.gemini\antigravity\scratch\GreenThreadConnect\server\node_modules\router\index.js:295:15
+    at processParams (C:\Users\HP\.gemini\antigravity\scratch\GreenThreadConnect\server\node_modules\router\index.js:582:12)
+    at next (C:\Users\HP\.gemini\antigravity\scratch\GreenThreadConnect\server\node_modules\router\index.js:291:5)
+    at Function.handle (C:\Users\HP\.gemini\antigravity\scratch\GreenThreadConnect\server\node_modules\router\index.js:186:3)
+
+[2026-02-09T19:15:05.354Z] Request received. Message: Hello
+API Key present: false
+ERROR: API Key is missing in environment variables
+STACK: Error: API Key is missing in environment variables
+    at C:\Users\HP\.gemini\antigravity\scratch\GreenThreadConnect\server\routes\ai.js:52:19
+    at Layer.handleRequest (C:\Users\HP\.gemini\antigravity\scratch\GreenThreadConnect\server\node_modules\router\lib\layer.js:152:17)
+    at next (C:\Users\HP\.gemini\antigravity\scratch\GreenThreadConnect\server\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (C:\Users\HP\.gemini\antigravity\scratch\GreenThreadConnect\server\node_modules\router\lib\route.js:117:3)
+    at handle (C:\Users\HP\.gemini\antigravity\scratch\GreenThreadConnect\server\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (C:\Users\HP\.gemini\antigravity\scratch\GreenThreadConnect\server\node_modules\router\lib\layer.js:152:17)
+    at C:\Users\HP\.gemini\antigravity\scratch\GreenThreadConnect\server\node_modules\router\index.js:295:15
+    at processParams (C:\Users\HP\.gemini\antigravity\scratch\GreenThreadConnect\server\node_modules\router\index.js:582:12)
+    at next (C:\Users\HP\.gemini\antigravity\scratch\GreenThreadConnect\server\node_modules\router\index.js:291:5)
+    at Function.handle (C:\Users\HP\.gemini\antigravity\scratch\GreenThreadConnect\server\node_modules\router\index.js:186:3)
+
+[2026-02-09T19:16:07.003Z] Request received. Message: Hello
+API Key present: false
+ERROR: API Key is missing in environment variables
+STACK: Error: API Key is missing in environment variables
+    at C:\Users\HP\.gemini\antigravity\scratch\GreenThreadConnect\server\routes\ai.js:52:19
+    at Layer.handleRequest (C:\Users\HP\.gemini\antigravity\scratch\GreenThreadConnect\server\node_modules\router\lib\layer.js:152:17)
+    at next (C:\Users\HP\.gemini\antigravity\scratch\GreenThreadConnect\server\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (C:\Users\HP\.gemini\antigravity\scratch\GreenThreadConnect\server\node_modules\router\lib\route.js:117:3)
+    at handle (C:\Users\HP\.gemini\antigravity\scratch\GreenThreadConnect\server\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (C:\Users\HP\.gemini\antigravity\scratch\GreenThreadConnect\server\node_modules\router\lib\layer.js:152:17)
+    at C:\Users\HP\.gemini\antigravity\scratch\GreenThreadConnect\server\node_modules\router\index.js:295:15
+    at processParams (C:\Users\HP\.gemini\antigravity\scratch\GreenThreadConnect\server\node_modules\router\index.js:582:12)
+    at next (C:\Users\HP\.gemini\antigravity\scratch\GreenThreadConnect\server\node_modules\router\index.js:291:5)
+    at Function.handle (C:\Users\HP\.gemini\antigravity\scratch\GreenThreadConnect\server\node_modules\router\index.js:186:3)
+
+[2026-02-09T19:17:06.903Z] Request received. Message: Hello
+API Key present: true
+Sending message to Gemini...
+ERROR: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-exp:generateContent: [404 Not Found] models/gemini-2.0-flash-exp is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+STACK: Error: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-exp:generateContent: [404 Not Found] models/gemini-2.0-flash-exp is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+    at handleResponseNotOk (C:\Users\HP\.gemini\antigravity\scratch\GreenThreadConnect\server\node_modules\@google\generative-ai\dist\index.js:434:11)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async makeRequest (C:\Users\HP\.gemini\antigravity\scratch\GreenThreadConnect\server\node_modules\@google\generative-ai\dist\index.js:403:9)
+    at async generateContent (C:\Users\HP\.gemini\antigravity\scratch\GreenThreadConnect\server\node_modules\@google\generative-ai\dist\index.js:867:22)
+    at async ChatSession.sendMessage (C:\Users\HP\.gemini\antigravity\scratch\GreenThreadConnect\server\node_modules\@google\generative-ai\dist\index.js:1210:9)
+    at async C:\Users\HP\.gemini\antigravity\scratch\GreenThreadConnect\server\routes\ai.js:81:24
+
+[2026-02-09T19:18:10.289Z] Request received. Message: Hello
+API Key present: true
+Sending message to Gemini...
+ERROR: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-exp:generateContent: [404 Not Found] models/gemini-2.0-flash-exp is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+STACK: Error: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-exp:generateContent: [404 Not Found] models/gemini-2.0-flash-exp is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+    at handleResponseNotOk (C:\Users\HP\.gemini\antigravity\scratch\GreenThreadConnect\server\node_modules\@google\generative-ai\dist\index.js:434:11)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async makeRequest (C:\Users\HP\.gemini\antigravity\scratch\GreenThreadConnect\server\node_modules\@google\generative-ai\dist\index.js:403:9)
+    at async generateContent (C:\Users\HP\.gemini\antigravity\scratch\GreenThreadConnect\server\node_modules\@google\generative-ai\dist\index.js:867:22)
+    at async ChatSession.sendMessage (C:\Users\HP\.gemini\antigravity\scratch\GreenThreadConnect\server\node_modules\@google\generative-ai\dist\index.js:1210:9)
+    at async C:\Users\HP\.gemini\antigravity\scratch\GreenThreadConnect\server\routes\ai.js:81:24
+
+[2026-02-09T19:19:14.287Z] Request received. Message: Hello
+API Key present: true
+Sending message to Gemini...
+ERROR: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-exp:generateContent: [404 Not Found] models/gemini-2.0-flash-exp is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+STACK: Error: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-exp:generateContent: [404 Not Found] models/gemini-2.0-flash-exp is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+    at handleResponseNotOk (C:\Users\HP\.gemini\antigravity\scratch\GreenThreadConnect\server\node_modules\@google\generative-ai\dist\index.js:434:11)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async makeRequest (C:\Users\HP\.gemini\antigravity\scratch\GreenThreadConnect\server\node_modules\@google\generative-ai\dist\index.js:403:9)
+    at async generateContent (C:\Users\HP\.gemini\antigravity\scratch\GreenThreadConnect\server\node_modules\@google\generative-ai\dist\index.js:867:22)
+    at async ChatSession.sendMessage (C:\Users\HP\.gemini\antigravity\scratch\GreenThreadConnect\server\node_modules\@google\generative-ai\dist\index.js:1210:9)
+    at async C:\Users\HP\.gemini\antigravity\scratch\GreenThreadConnect\server\routes\ai.js:81:24
+
+[2026-02-11T04:58:35.908Z] Request received. Message: can you suggest some bamboo product that are used for home decore 
+API Key present: true
+Sending message to Gemini...
+ERROR: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-001:generateContent: [429 Too Many Requests] You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_input_token_count, limit: 0, model: gemini-2.0-flash
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash
+Please retry in 23.810906517s. [{"@type":"type.googleapis.com/google.rpc.Help","links":[{"description":"Learn more about Gemini API quotas","url":"https://ai.google.dev/gemini-api/docs/rate-limits"}]},{"@type":"type.googleapis.com/google.rpc.QuotaFailure","violations":[{"quotaMetric":"generativelanguage.googleapis.com/generate_content_free_tier_input_token_count","quotaId":"GenerateContentInputTokensPerModelPerMinute-FreeTier","quotaDimensions":{"location":"global","model":"gemini-2.0-flash"}},{"quotaMetric":"generativelanguage.googleapis.com/generate_content_free_tier_requests","quotaId":"GenerateRequestsPerMinutePerProjectPerModel-FreeTier","quotaDimensions":{"location":"global","model":"gemini-2.0-flash"}},{"quotaMetric":"generativelanguage.googleapis.com/generate_content_free_tier_requests","quotaId":"GenerateRequestsPerDayPerProjectPerModel-FreeTier","quotaDimensions":{"location":"global","model":"gemini-2.0-flash"}}]},{"@type":"type.googleapis.com/google.rpc.RetryInfo","retryDelay":"23s"}]
+STACK: Error: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-001:generateContent: [429 Too Many Requests] You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_input_token_count, limit: 0, model: gemini-2.0-flash
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash
+Please retry in 23.810906517s. [{"@type":"type.googleapis.com/google.rpc.Help","links":[{"description":"Learn more about Gemini API quotas","url":"https://ai.google.dev/gemini-api/docs/rate-limits"}]},{"@type":"type.googleapis.com/google.rpc.QuotaFailure","violations":[{"quotaMetric":"generativelanguage.googleapis.com/generate_content_free_tier_input_token_count","quotaId":"GenerateContentInputTokensPerModelPerMinute-FreeTier","quotaDimensions":{"location":"global","model":"gemini-2.0-flash"}},{"quotaMetric":"generativelanguage.googleapis.com/generate_content_free_tier_requests","quotaId":"GenerateRequestsPerMinutePerProjectPerModel-FreeTier","quotaDimensions":{"location":"global","model":"gemini-2.0-flash"}},{"quotaMetric":"generativelanguage.googleapis.com/generate_content_free_tier_requests","quotaId":"GenerateRequestsPerDayPerProjectPerModel-FreeTier","quotaDimensions":{"location":"global","model":"gemini-2.0-flash"}}]},{"@type":"type.googleapis.com/google.rpc.RetryInfo","retryDelay":"23s"}]
+    at handleResponseNotOk (C:\Users\HP\.gemini\antigravity\scratch\GreenThreadConnect\server\node_modules\@google\generative-ai\dist\index.js:434:11)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async makeRequest (C:\Users\HP\.gemini\antigravity\scratch\GreenThreadConnect\server\node_modules\@google\generative-ai\dist\index.js:403:9)
+    at async generateContent (C:\Users\HP\.gemini\antigravity\scratch\GreenThreadConnect\server\node_modules\@google\generative-ai\dist\index.js:867:22)
+    at async ChatSession.sendMessage (C:\Users\HP\.gemini\antigravity\scratch\GreenThreadConnect\server\node_modules\@google\generative-ai\dist\index.js:1210:9)
+    at async C:\Users\HP\.gemini\antigravity\scratch\GreenThreadConnect\server\routes\ai.js:81:24
+
+[2026-02-11T04:59:12.108Z] Request received. Message: hello
+API Key present: true
+Sending message to Gemini...
+ERROR: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-001:generateContent: [429 Too Many Requests] You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_input_token_count, limit: 0, model: gemini-2.0-flash
+Please retry in 47.499778051s. [{"@type":"type.googleapis.com/google.rpc.Help","links":[{"description":"Learn more about Gemini API quotas","url":"https://ai.google.dev/gemini-api/docs/rate-limits"}]},{"@type":"type.googleapis.com/google.rpc.QuotaFailure","violations":[{"quotaMetric":"generativelanguage.googleapis.com/generate_content_free_tier_requests","quotaId":"GenerateRequestsPerDayPerProjectPerModel-FreeTier","quotaDimensions":{"location":"global","model":"gemini-2.0-flash"}},{"quotaMetric":"generativelanguage.googleapis.com/generate_content_free_tier_requests","quotaId":"GenerateRequestsPerMinutePerProjectPerModel-FreeTier","quotaDimensions":{"model":"gemini-2.0-flash","location":"global"}},{"quotaMetric":"generativelanguage.googleapis.com/generate_content_free_tier_input_token_count","quotaId":"GenerateContentInputTokensPerModelPerMinute-FreeTier","quotaDimensions":{"model":"gemini-2.0-flash","location":"global"}}]},{"@type":"type.googleapis.com/google.rpc.RetryInfo","retryDelay":"47s"}]
+STACK: Error: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-001:generateContent: [429 Too Many Requests] You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_input_token_count, limit: 0, model: gemini-2.0-flash
+Please retry in 47.499778051s. [{"@type":"type.googleapis.com/google.rpc.Help","links":[{"description":"Learn more about Gemini API quotas","url":"https://ai.google.dev/gemini-api/docs/rate-limits"}]},{"@type":"type.googleapis.com/google.rpc.QuotaFailure","violations":[{"quotaMetric":"generativelanguage.googleapis.com/generate_content_free_tier_requests","quotaId":"GenerateRequestsPerDayPerProjectPerModel-FreeTier","quotaDimensions":{"location":"global","model":"gemini-2.0-flash"}},{"quotaMetric":"generativelanguage.googleapis.com/generate_content_free_tier_requests","quotaId":"GenerateRequestsPerMinutePerProjectPerModel-FreeTier","quotaDimensions":{"model":"gemini-2.0-flash","location":"global"}},{"quotaMetric":"generativelanguage.googleapis.com/generate_content_free_tier_input_token_count","quotaId":"GenerateContentInputTokensPerModelPerMinute-FreeTier","quotaDimensions":{"model":"gemini-2.0-flash","location":"global"}}]},{"@type":"type.googleapis.com/google.rpc.RetryInfo","retryDelay":"47s"}]
+    at handleResponseNotOk (C:\Users\HP\.gemini\antigravity\scratch\GreenThreadConnect\server\node_modules\@google\generative-ai\dist\index.js:434:11)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async makeRequest (C:\Users\HP\.gemini\antigravity\scratch\GreenThreadConnect\server\node_modules\@google\generative-ai\dist\index.js:403:9)
+    at async generateContent (C:\Users\HP\.gemini\antigravity\scratch\GreenThreadConnect\server\node_modules\@google\generative-ai\dist\index.js:867:22)
+    at async ChatSession.sendMessage (C:\Users\HP\.gemini\antigravity\scratch\GreenThreadConnect\server\node_modules\@google\generative-ai\dist\index.js:1210:9)
+    at async C:\Users\HP\.gemini\antigravity\scratch\GreenThreadConnect\server\routes\ai.js:81:24
+
+[2026-02-11T04:59:35.182Z] Request received. Message: hello
+API Key present: true
+Sending message to Gemini...
+ERROR: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-001:generateContent: [429 Too Many Requests] You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_input_token_count, limit: 0, model: gemini-2.0-flash
+Please retry in 24.530873189s. [{"@type":"type.googleapis.com/google.rpc.Help","links":[{"description":"Learn more about Gemini API quotas","url":"https://ai.google.dev/gemini-api/docs/rate-limits"}]},{"@type":"type.googleapis.com/google.rpc.QuotaFailure","violations":[{"quotaMetric":"generativelanguage.googleapis.com/generate_content_free_tier_requests","quotaId":"GenerateRequestsPerDayPerProjectPerModel-FreeTier","quotaDimensions":{"location":"global","model":"gemini-2.0-flash"}},{"quotaMetric":"generativelanguage.googleapis.com/generate_content_free_tier_requests","quotaId":"GenerateRequestsPerMinutePerProjectPerModel-FreeTier","quotaDimensions":{"model":"gemini-2.0-flash","location":"global"}},{"quotaMetric":"generativelanguage.googleapis.com/generate_content_free_tier_input_token_count","quotaId":"GenerateContentInputTokensPerModelPerMinute-FreeTier","quotaDimensions":{"location":"global","model":"gemini-2.0-flash"}}]},{"@type":"type.googleapis.com/google.rpc.RetryInfo","retryDelay":"24s"}]
+STACK: Error: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-001:generateContent: [429 Too Many Requests] You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_input_token_count, limit: 0, model: gemini-2.0-flash
+Please retry in 24.530873189s. [{"@type":"type.googleapis.com/google.rpc.Help","links":[{"description":"Learn more about Gemini API quotas","url":"https://ai.google.dev/gemini-api/docs/rate-limits"}]},{"@type":"type.googleapis.com/google.rpc.QuotaFailure","violations":[{"quotaMetric":"generativelanguage.googleapis.com/generate_content_free_tier_requests","quotaId":"GenerateRequestsPerDayPerProjectPerModel-FreeTier","quotaDimensions":{"location":"global","model":"gemini-2.0-flash"}},{"quotaMetric":"generativelanguage.googleapis.com/generate_content_free_tier_requests","quotaId":"GenerateRequestsPerMinutePerProjectPerModel-FreeTier","quotaDimensions":{"model":"gemini-2.0-flash","location":"global"}},{"quotaMetric":"generativelanguage.googleapis.com/generate_content_free_tier_input_token_count","quotaId":"GenerateContentInputTokensPerModelPerMinute-FreeTier","quotaDimensions":{"location":"global","model":"gemini-2.0-flash"}}]},{"@type":"type.googleapis.com/google.rpc.RetryInfo","retryDelay":"24s"}]
+    at handleResponseNotOk (C:\Users\HP\.gemini\antigravity\scratch\GreenThreadConnect\server\node_modules\@google\generative-ai\dist\index.js:434:11)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async makeRequest (C:\Users\HP\.gemini\antigravity\scratch\GreenThreadConnect\server\node_modules\@google\generative-ai\dist\index.js:403:9)
+    at async generateContent (C:\Users\HP\.gemini\antigravity\scratch\GreenThreadConnect\server\node_modules\@google\generative-ai\dist\index.js:867:22)
+    at async ChatSession.sendMessage (C:\Users\HP\.gemini\antigravity\scratch\GreenThreadConnect\server\node_modules\@google\generative-ai\dist\index.js:1210:9)
+    at async C:\Users\HP\.gemini\antigravity\scratch\GreenThreadConnect\server\routes\ai.js:81:24
+
+[2026-02-11T05:19:41.026Z] Request received. Message: hello
+API Key present: true
+Sending message to Gemini...
+ERROR: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-001:generateContent: [429 Too Many Requests] You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_input_token_count, limit: 0, model: gemini-2.0-flash
+Please retry in 18.51229054s. [{"@type":"type.googleapis.com/google.rpc.Help","links":[{"description":"Learn more about Gemini API quotas","url":"https://ai.google.dev/gemini-api/docs/rate-limits"}]},{"@type":"type.googleapis.com/google.rpc.QuotaFailure","violations":[{"quotaMetric":"generativelanguage.googleapis.com/generate_content_free_tier_requests","quotaId":"GenerateRequestsPerDayPerProjectPerModel-FreeTier","quotaDimensions":{"model":"gemini-2.0-flash","location":"global"}},{"quotaMetric":"generativelanguage.googleapis.com/generate_content_free_tier_requests","quotaId":"GenerateRequestsPerMinutePerProjectPerModel-FreeTier","quotaDimensions":{"model":"gemini-2.0-flash","location":"global"}},{"quotaMetric":"generativelanguage.googleapis.com/generate_content_free_tier_input_token_count","quotaId":"GenerateContentInputTokensPerModelPerMinute-FreeTier","quotaDimensions":{"location":"global","model":"gemini-2.0-flash"}}]},{"@type":"type.googleapis.com/google.rpc.RetryInfo","retryDelay":"18s"}]
+STACK: Error: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-001:generateContent: [429 Too Many Requests] You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_input_token_count, limit: 0, model: gemini-2.0-flash
+Please retry in 18.51229054s. [{"@type":"type.googleapis.com/google.rpc.Help","links":[{"description":"Learn more about Gemini API quotas","url":"https://ai.google.dev/gemini-api/docs/rate-limits"}]},{"@type":"type.googleapis.com/google.rpc.QuotaFailure","violations":[{"quotaMetric":"generativelanguage.googleapis.com/generate_content_free_tier_requests","quotaId":"GenerateRequestsPerDayPerProjectPerModel-FreeTier","quotaDimensions":{"model":"gemini-2.0-flash","location":"global"}},{"quotaMetric":"generativelanguage.googleapis.com/generate_content_free_tier_requests","quotaId":"GenerateRequestsPerMinutePerProjectPerModel-FreeTier","quotaDimensions":{"model":"gemini-2.0-flash","location":"global"}},{"quotaMetric":"generativelanguage.googleapis.com/generate_content_free_tier_input_token_count","quotaId":"GenerateContentInputTokensPerModelPerMinute-FreeTier","quotaDimensions":{"location":"global","model":"gemini-2.0-flash"}}]},{"@type":"type.googleapis.com/google.rpc.RetryInfo","retryDelay":"18s"}]
+    at handleResponseNotOk (C:\Users\HP\.gemini\antigravity\scratch\GreenThreadConnect\server\node_modules\@google\generative-ai\dist\index.js:434:11)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async makeRequest (C:\Users\HP\.gemini\antigravity\scratch\GreenThreadConnect\server\node_modules\@google\generative-ai\dist\index.js:403:9)
+    at async generateContent (C:\Users\HP\.gemini\antigravity\scratch\GreenThreadConnect\server\node_modules\@google\generative-ai\dist\index.js:867:22)
+    at async ChatSession.sendMessage (C:\Users\HP\.gemini\antigravity\scratch\GreenThreadConnect\server\node_modules\@google\generative-ai\dist\index.js:1210:9)
+    at async C:\Users\HP\.gemini\antigravity\scratch\GreenThreadConnect\server\routes\ai.js:81:24
+
+[2026-02-11T05:53:27.017Z] Request received. Message: hello
+Gemini Response: {
+  "message": "Hello! Welcome to Green Thread Connect. How can I assist you with finding sustainable products or managing your account today?",
+  "action": "NONE",
+  "data": {}
+}
+
+[2026-02-13T03:06:21.744Z] Request received. Message: hello
+Gemini Response: {
+  "message": "Hello! Welcome to Green Thread Connect. How can I help you explore our sustainable artisan marketplace today?",
+  "action": "NONE",
+  "data": {}
+}
+
+[2026-02-13T05:07:01.743Z] Request received. Message: hii
+Gemini Response: {
+  "message": "Hello! Welcome to Green Thread Connect. Are you looking to buy or sell sustainable goods today?",
+  "action": "NONE",
+  "data": {}
+}
+
+[2026-02-13T05:07:31.071Z] Request received. Message: can you suggest some pottery product 
+Gemini Response: {
+  "message": "I'd be happy to help you find some beautiful artisan pottery! Let me search our marketplace for you.",
+  "action": "SEARCH_PRODUCTS",
+  "data": {
+    "query": "pottery"
+  }
+}

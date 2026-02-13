@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import './Home.css';
 import axios from 'axios';
+import { useCurrency } from '../context/CurrencyContext';
 
 const videos = [
     '/assets/video1.mp4',
@@ -11,9 +12,11 @@ const videos = [
 ];
 
 function Home() {
+    const { formatPrice } = useCurrency();
     const navigate = useNavigate();
     const [previewProducts, setPreviewProducts] = useState([]);
     const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
+
 
     // Rotate videos every 8 seconds
     useEffect(() => {
@@ -69,7 +72,7 @@ function Home() {
 
                 <div className="hero-content">
                     <span className="hero-subtitle">Authentic Indian Heritage</span>
-                    <h1 className="hero-title">Discover Kala Bazzar</h1>
+                    <h1 className="hero-title">Discover GreenThreadConnect</h1>
                     <div className="hero-box">
                         <h2>Where Tradition Meets Modernity</h2>
                         <p>Explore our curated collection of authentic Indian traditional items, handcrafted by skilled artisans and brought to you through our innovative e-commerce platform.</p>
@@ -98,7 +101,7 @@ function Home() {
                             <div className="preview-info">
                                 <h3>{product.name}</h3>
                                 <p>{product.category}</p>
-                                <span className="price">${product.price}</span>
+                                <span className="price">{formatPrice(product.price)}</span>
                             </div>
                         </div>
                     )) : (

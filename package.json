@@ -12,7 +12,9 @@
     "@sap/cds": "^8",
     "@sap/cds-hana": "^2",
     "@sap/xssec": "^3",
-    "express": "^4"
+    "dotenv": "^17.2.4",
+    "express": "^4",
+    "mongoose": "^9.1.6"
   },
   "devDependencies": {
     "@cap-js/sqlite": "^1",

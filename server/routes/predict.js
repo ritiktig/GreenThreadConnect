@@ -1,28 +1,62 @@
 const router = require('express').Router();
 
-router.post('/', (req, res) => {
-    // Mock Price Prediction Logic
-    try {
-        const { region, material, weight_g } = req.body;
-        
-        // Simple mock algorithm
-        let basePrice = 50;
-        if (material && material.toLowerCase().includes('silk')) basePrice += 30;
-        if (region && region.toLowerCase().includes('us')) basePrice += 20;
-        if (weight_g) basePrice += (weight_g * 0.01);
+// Carbon Emission Prediction
+router.post('/carbon', (req, res) => {
+    const { 
+        material_quantity_kg, 
+        energy_used_kwh, 
+        transport_distance_km, 
+        product_weight_kg, 
+        recycled_material_percent, 
+        primary_material, 
+        production_type 
+    } = req.body;
 
-        // Add some random variance
-        const predictedPrice = (basePrice + Math.random() * 20).toFixed(2);
-        
-        // Return result
-        // Simulate delay
-        setTimeout(() => {
-            res.status(200).json({ predicted_price: predictedPrice });
-        }, 1000);
-
-    } catch (err) {
-        res.status(500).json({ message: "Prediction failed" });
+    // Validate inputs
+    if (!material_quantity_kg || !energy_used_kwh || !transport_distance_km || !product_weight_kg || !recycled_material_percent || !primary_material || !production_type) {
+        return res.status(400).json({ error: "Missing required fields for carbon prediction" });
     }
+
+    const { spawn } = require('child_process');
+    const path = require('path');
+
+    const scriptPath = path.join(__dirname, '../../ml/predict_carbon.py');
+    const pythonProcess = spawn('python', [scriptPath]);
+
+    let dataString = '';
+    let errorString = '';
+
+    // Send data to python script via stdin
+    const inputData = JSON.stringify(req.body);
+    pythonProcess.stdin.write(inputData);
+    pythonProcess.stdin.end();
+
+    pythonProcess.stdout.on('data', (data) => {
+        dataString += data.toString();
+    });
+
+    pythonProcess.stderr.on('data', (data) => {
+        errorString += data.toString();
+    });
+
+    pythonProcess.on('close', (code) => {
+        if (code !== 0) {
+            console.error(`Python script exited with code ${code}`);
+            console.error(`Error: ${errorString}`);
+            return res.status(500).json({ error: "Prediction failed", details: errorString });
+        }
+        
+        try {
+            const result = JSON.parse(dataString);
+            if (result.error) {
+                return res.status(400).json(result);
+            }
+            res.json(result);
+        } catch (e) {
+            console.error("Failed to parse Python output:", dataString);
+            res.status(500).json({ error: "Invalid response from prediction model" });
+        }
+    });
 });
 
 module.exports = router;

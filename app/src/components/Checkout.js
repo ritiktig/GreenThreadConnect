@@ -3,9 +3,12 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './Checkout.css'; // We will create this or inline styles
 
+import { useCurrency } from '../context/CurrencyContext';
+
 function Checkout({ cart, setCart }) {
+  const { formatPrice } = useCurrency();
   const navigate = useNavigate();
-  const [step, setStep] = useState(1); // 1: Address, 2: Payment
+  const [step, setStep] = useState(1);
   const [addresses, setAddresses] = useState([]);
   const [selectedAddress, setSelectedAddress] = useState(null);
   const [paymentMethod, setPaymentMethod] = useState('');
@@ -169,7 +172,7 @@ function Checkout({ cart, setCart }) {
       {step === 2 && (
           <div className="step-content">
               <h3>Payment Method</h3>
-              <p>Total Amount: <span style={{ fontSize: '1.2rem', fontWeight: 'bold', color: '#27ae60' }}>${total.toFixed(2)}</span></p>
+              <p>Total Amount: <span style={{ fontSize: '1.2rem', fontWeight: 'bold', color: '#27ae60' }}>{formatPrice(total)}</span></p>
               
               <div className="payment-options" style={{ display: 'flex', flexDirection: 'column', gap: '1rem', margin: '2rem 0' }}>
                   <label style={{ display: 'flex', alignItems: 'center', gap: '1rem', padding: '1rem', border: '1px solid #ddd', borderRadius: '8px', cursor: 'pointer' }}>

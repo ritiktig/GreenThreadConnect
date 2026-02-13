@@ -3,8 +3,12 @@ import axios from 'axios';
 import { useParams, useNavigate } from 'react-router-dom';
 import './AddProduct.css'; // Reuse premium styles
 
+import { useCurrency } from '../context/CurrencyContext';
+
 function EditProduct() {
+  const { symbol } = useCurrency();
   const { id } = useParams();
+  // ... (rest of code)
   const navigate = useNavigate();
   const [product, setProduct] = useState({ name: '', material: '', region: '', price: '', stock: '' });
   const [image, setImage] = useState(null);
@@ -164,7 +168,7 @@ function EditProduct() {
 
         <div className="grid-2">
             <div className="form-group">
-                <label>Price ($)</label>
+                <label>Price ({symbol})</label>
                 <input 
                     className="form-input"
                     name="price" 

@@ -1,7 +1,11 @@
 import React from 'react';
+import { useCurrency } from '../context/CurrencyContext';
 
 function Cart({ cart, setCart, onCheckout }) {
+  const { formatPrice } = useCurrency();
   const total = cart.reduce((sum, item) => sum + (item.price * (item.quantity || 1)), 0);
+
+
 
   const handleBuyNow = () => {
     onCheckout();
@@ -48,7 +52,7 @@ function Cart({ cart, setCart, onCheckout }) {
                   <div>
                     <h4 style={{ margin: 0 }}>{item.name}</h4>
                     <p style={{ margin: 0, color: '#7f8c8d', fontSize: '0.9rem' }}>{item.category}</p>
-                    <p style={{ margin: '0.2rem 0 0', fontSize: '0.9rem' }}>Unit Price: ${item.price.toFixed(2)}</p>
+                    <p style={{ margin: '0.2rem 0 0', fontSize: '0.9rem' }}>Unit Price: {formatPrice(item.price)}</p>
                   </div>
                 </div>
                 
@@ -67,7 +71,7 @@ function Cart({ cart, setCart, onCheckout }) {
                    </div>
 
                   <span style={{ fontWeight: 'bold', color: '#27ae60', minWidth: '80px', textAlign: 'right' }}>
-                    ${(item.price * (item.quantity || 1)).toFixed(2)}
+                    {formatPrice(item.price * (item.quantity || 1))}
                   </span>
                   
                   <button onClick={() => removeFromCart(index)} style={{ background: '#e74c3c', padding: '0.5rem 1rem', fontSize: '0.9rem' }}>Remove</button>
@@ -77,7 +81,7 @@ function Cart({ cart, setCart, onCheckout }) {
           </div>
 
           <div style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center', gap: '2rem', borderTop: '2px solid #eee', paddingTop: '1rem' }}>
-            <h3>Total: <span style={{ color: '#27ae60' }}>${total.toFixed(2)}</span></h3>
+            <h3>Total: <span style={{ color: '#27ae60' }}>{formatPrice(total)}</span></h3>
             <button onClick={handleBuyNow} style={{ fontSize: '1.1rem', padding: '1rem 2rem' }}>Buy Now</button>
           </div>
         </div>

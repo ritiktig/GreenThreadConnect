@@ -2,12 +2,14 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 
+import { useCurrency } from '../context/CurrencyContext';
+
 function MyProducts() {
+  const { formatPrice } = useCurrency();
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [editingProduct, setEditingProduct] = useState(null); // Product being edited
+  const [editingProduct, setEditingProduct] = useState(null);
   const [editForm, setEditForm] = useState({ name: '', price: '', stock: '', category: '' });
-
   useEffect(() => {
     fetchMyProducts();
   }, []);
@@ -112,7 +114,7 @@ function MyProducts() {
                             </td>
                             <td style={{ padding: '1rem' }}>{p.name}</td>
                             <td style={{ padding: '1rem' }}>{p.category}</td>
-                            <td style={{ padding: '1rem' }}>${p.price}</td>
+                            <td style={{ padding: '1rem' }}>{formatPrice(p.price)}</td>
                             <td style={{ padding: '1rem' }}>{p.stock}</td>
                             <td style={{ padding: '1rem' }}>
                                 <button 

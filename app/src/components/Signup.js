@@ -28,7 +28,7 @@ function Signup() {
       const endpoint = '/api/auth/register';
       const dataToSend = {
           ...formData,
-          role: formData.role.toLowerCase(), // 'buyer' or 'artisan'
+          role: formData.role.toLowerCase() === 'artisan' ? 'seller' : 'buyer',
            // Basic fallback region if backend requires it. 
            // Mock-up didn't show region, so we'll default or handle if needed.
           region: 'India' 

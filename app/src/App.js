@@ -12,7 +12,9 @@ import Signup from './components/Signup';
 import PricePrediction from './components/PricePrediction';
 import SellerAnalytics from './components/SellerAnalytics';
 import MyProducts from './components/MyProducts';
+import AIBot from './components/AIBot';
 import './App.css';
+import { CurrencyProvider } from './context/CurrencyContext';
 
 import Cart from './components/Cart';
 import BuyerHistory from './components/BuyerHistory';
@@ -98,6 +100,7 @@ function AppContent() {
         <Route path="/seller/edit-product/:id" element={<EditProduct />} />
         <Route path="/seller/predictions" element={<PricePrediction />} />
       </Routes>
+      <AIBot />
     </div>
   );
 }
@@ -105,7 +108,9 @@ function AppContent() {
 function App() {
   return (
     <Router future={{ v7_relativeSplatPath: true, v7_startTransition: true }}>
-      <AppContent />
+      <CurrencyProvider>
+        <AppContent />
+      </CurrencyProvider>
     </Router>
   );
 }

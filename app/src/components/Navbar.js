@@ -1,9 +1,12 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import './Navbar.css'; // We'll create this CSS file next
+import { useCurrency } from '../context/CurrencyContext';
+import './Navbar.css'; 
+import logo from '../assets/logo.svg';
 
 function Navbar({ role, cartCount }) {
   const navigate = useNavigate();
+  const { currency, changeCurrency } = useCurrency();
 
   const handleLogout = () => {
     localStorage.removeItem('token');
@@ -18,7 +21,8 @@ function Navbar({ role, cartCount }) {
   return (
     <nav className="navbar">
       <div className="navbar-logo" onClick={() => navigate('/')}>
-        <span className="logo-icon">🎨</span> Kala Bazzar
+        <img src={logo} alt="GreenThreadConnect Logo" className="logo-image" />
+        <span className="logo-text">GreenThreadConnect</span>
       </div>
       
       <div className="navbar-links">
@@ -56,6 +60,18 @@ function Navbar({ role, cartCount }) {
                 <Link to="/signup" className="btn-signup">Create Your Account</Link>
             </div>
         )}
+      </div>
+
+      <div className="navbar-currency">
+          <select 
+              value={currency} 
+              onChange={(e) => changeCurrency(e.target.value)}
+          >
+              <option value="USD">USD ($)</option>
+              <option value="INR">INR (₹)</option>
+              <option value="EUR">EUR (€)</option>
+              <option value="GBP">GBP (£)</option>
+          </select>
       </div>
     </nav>
   );

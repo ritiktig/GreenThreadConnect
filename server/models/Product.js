@@ -12,6 +12,7 @@ const productSchema = new mongoose.Schema({
     sustainabilityRating: { type: Number, min: 1, max: 5 },
     imageUrl: { type: String }, // Base64 or URL
     seller: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
+    carbonFootprint: { type: Number },
     createdAt: { type: Date, default: Date.now }
 });
 
