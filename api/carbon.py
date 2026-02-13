@@ -8,12 +8,12 @@ import joblib
 
 # Paths relative to the root of the project (where Vercel runs)
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-PROJECT_ROOT = os.path.dirname(BASE_DIR)
-ML_DIR = os.path.join(PROJECT_ROOT, 'ml')
+# Models are now in api/ml/ alongside this script
+ML_DIR = os.path.join(BASE_DIR, 'ml')
 
 MODEL_PATH = os.path.join(ML_DIR, 'carbon_emission_model.pkl')
 SCALER_PATH = os.path.join(ML_DIR, 'feature_scaler.pkl')
-FEATURE_NAMES_PATH = os.path.join(ML_DIR, 'models', 'feature_names.txt')
+FEATURE_NAMES_PATH = os.path.join(ML_DIR, 'feature_names.txt')
 
 # Helper functions from original script
 def get_organic_score(material):
