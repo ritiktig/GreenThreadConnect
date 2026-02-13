@@ -80,13 +80,10 @@ async function generateChatResponse(message, history) {
 }
 
 router.post('/chat', async (req, res) => {
-    const fs = require('fs');
-    const logFile = 'C:\\Users\\HP\\.gemini\\antigravity\\scratch\\GreenThreadConnect\\server\\ai_debug.log';
-    
     try {
         const { message, history } = req.body;
         
-        fs.appendFileSync(logFile, `\n[${new Date().toISOString()}] Request received. Message: ${message}\n`);
+        console.log(`[${new Date().toISOString()}] Request received. Message: ${message}`);
         
         if (!process.env.GEMINI_API_KEY) {
             throw new Error("API Key is missing in environment variables");
@@ -94,14 +91,13 @@ router.post('/chat', async (req, res) => {
 
         const text = await generateChatResponse(message, history);
 
-        fs.appendFileSync(logFile, `Gemini Response: ${text}\n`);
         console.log("Gemini Response:", text);
 
         let parsedResponse;
         try {
             parsedResponse = JSON.parse(text);
         } catch (e) {
-            fs.appendFileSync(logFile, "JSON Parse Error, using fallback\n");
+            console.error("JSON Parse Error, using fallback");
             parsedResponse = {
                 message: text,
                 action: "NONE"
@@ -111,7 +107,6 @@ router.post('/chat', async (req, res) => {
         res.status(200).json(parsedResponse);
 
     } catch (err) {
-        fs.appendFileSync(logFile, `ERROR: ${err.message}\nSTACK: ${err.stack}\n`);
         console.error("AI Error:", err);
         res.status(500).json({ 
             message: "Sorry, I'm having trouble connecting to my brain right now.",

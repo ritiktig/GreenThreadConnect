@@ -6,12 +6,20 @@
       "use": "@vercel/node"
     },
     {
+      "src": "api/carbon.py",
+      "use": "@vercel/python"
+    },
+    {
       "src": "app/package.json",
       "use": "@vercel/static-build",
       "config": { "distDir": "build" }
     }
   ],
   "routes": [
+    {
+      "src": "/api/predict/carbon",
+      "dest": "/api/carbon.py"
+    },
     {
       "src": "/api/(.*)",
       "dest": "/server/index.js"
