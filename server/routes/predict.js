@@ -18,51 +18,31 @@ router.post('/carbon', async (req, res) => {
     }
 
     try {
-        // In Vercel, the Python function is at /api/carbon.py which we mapped to /api/predict/carbon in vercel.json
-        // However, since we are inside the Express app, we can't easily "fetch" our own Vercel API without the full domain.
-        // A better approach for Vercel is to have the frontend call the Python API directly if possible, OR
-        // make an HTTP request to the relative path if the environment supports it (it usually doesn't without a domain).
+        // Implement the carbon calculation logic directly in JavaScript
+        // This mirrors the logic in api/carbon.py to avoid recursive calls and Python dependency for basic calculation
         
-        // TEMPORARY FIX:
-        // For now, we will try to fetch from the deployment URL if available, or localhost.
+        let prediction_value = 0;
         
-        const protocol = req.protocol;
-        const host = req.get('host');
-        const apiUrl = `${protocol}://${host}/api/predict/carbon`; // This routes to the Python handler via vercel.json
-
-        console.log("Delegating prediction to Python Runtime at:", apiUrl);
-
-        const response = await fetch(apiUrl, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(req.body)
+        // Basic calculation based on the python model's fallback logic
+        // prediction_value = (material_quantity_kg * 2.5) + (energy_used_kwh * 0.4)
+        
+        const mat_qty = parseFloat(material_quantity_kg) || 0;
+        const energy = parseFloat(energy_used_kwh) || 0;
+        
+        prediction_value = (mat_qty * 2.5) + (energy * 0.4);
+        
+        // Add some small variance based on other factors to make it slightly more dynamic if needed, 
+        // but for now strict adherence to the fallback logic is safest.
+        
+        // Send response
+        res.json({
+            carbon_emission: prediction_value, 
+            source: "javascript_logic"
         });
 
-        if (!response.ok) {
-            const errText = await response.text();
-            throw new Error(`Python API Error: ${errText}`);
-        }
-
-        const data = await response.json();
-        res.json(data);
-
     } catch (error) {
-        console.error("Carbon Model Delegation Error:", error);
-        // Fallback to Gemini if Python fails (e.g. running locally without python server)
-        console.log("Falling back to Gemini...");
-        try {
-            const { GoogleGenerativeAI } = require("@google/generative-ai");
-            const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
-            const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
-            
-            const prompt = `Estimate carbon footprint (kg CO2e) for: ${primary_material}, ${material_quantity_kg}kg, ${energy_used_kwh}kWh. Return JSON { "carbon_emission": NUMBER }`;
-            const result = await model.generateContent(prompt);
-            const text = result.response.text();
-            const json = JSON.parse(text.replace(/```json|```/g, '').trim());
-            res.json(json);
-        } catch (geminiErr) {
-            res.status(500).json({ error: "Prediction failed (Both Methodologies)" });
-        }
+        console.error("Carbon Calculation Error:", error);
+        res.status(500).json({ error: "Prediction failed" });
     }
 });
 
