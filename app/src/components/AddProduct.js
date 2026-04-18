@@ -24,6 +24,8 @@ function AddProduct() {
   const [showCarbonForm, setShowCarbonForm] = useState(false);
   const [carbonLoading, setCarbonLoading] = useState(false);
   const [carbonResult, setCarbonResult] = useState(null);
+  const [ecoSuggestions, setEcoSuggestions] = useState(null);
+  const [ecoLoading, setEcoLoading] = useState(false);
   const [carbonData, setCarbonData] = useState({
       material_quantity_kg: '',
       energy_used_kwh: '',
@@ -53,8 +55,14 @@ function AddProduct() {
         const response = await axios.post('/api/predict/carbon', payload);
         if (response.data.carbon_emission !== undefined) {
              setCarbonResult(response.data.carbon_emission);
-             // Optionally save this to the product state if you want to store it in DB
-             // setProduct(prev => ({ ...prev, carbon_footprint: response.data.carbon_emission }));
+             setEcoSuggestions(null); // Reset suggestions when fetching a new calc
+             
+             // Debug alert to see where the prediction came from
+             if (response.data.source === 'ml_model') {
+                 alert('✅ Success: Predicted using the Python ML Model!');
+             } else {
+                 alert('⚠️ Warning: Python ML failed. Used JS Math fallback instead.');
+             }
         }
     } catch (error) {
         console.error("Carbon Calc Error:", error);
@@ -63,6 +71,26 @@ function AddProduct() {
         setCarbonLoading(false);
     }
   };
+
+  const getEcoSuggestions = async () => {
+      setEcoLoading(true);
+      try {
+          const response = await axios.post('/api/ai/suggest-eco-materials', {
+              productName: product.name || 'Artisan Product',
+              currentMaterial: product.material || carbonData.primary_material,
+              carbonFootprint: carbonResult
+          });
+          if (response.data && response.data.suggestions) {
+              setEcoSuggestions(response.data.suggestions);
+          }
+      } catch (error) {
+          console.error("Eco Suggestions Error:", error);
+          alert("Failed to get suggestions. Please try again.");
+      } finally {
+          setEcoLoading(false);
+      }
+  };
+
 
   const handleInputChange = (e) => {
     setProduct({ ...product, [e.target.name]: e.target.value });
@@ -323,9 +351,30 @@ function AddProduct() {
 
                     {carbonResult !== null && (
                         <div style={{ marginTop: '1rem', padding: '1rem', background: '#e8f5e9', borderRadius: '8px', border: '1px solid #c8e6c9' }}>
-                            <p style={{ color: '#2E7D32', margin: 0, fontSize: '1.1rem' }}>
+                            <p style={{ color: '#2E7D32', margin: 0, fontSize: '1.1rem', marginBottom: '1rem' }}>
                                 <strong>Estimated Carbon Emission:</strong> {Number(carbonResult).toFixed(2)} kg CO2e
                             </p>
+                            <button 
+                                onClick={getEcoSuggestions} 
+                                disabled={ecoLoading} 
+                                className="prediction-btn" 
+                                style={{ background: '#2E7D32', width: 'auto', padding: '0.5rem 1rem', fontSize: '0.9rem', color: '#fff', border: 'none', borderRadius: '4px', cursor: 'pointer' }}
+                            >
+                                {ecoLoading ? 'Asking AI...' : '💡 Get Eco-Friendly Alternative Suggestions'}
+                            </button>
+                            
+                            {ecoSuggestions && (
+                                <div style={{ marginTop: '1rem', padding: '1rem', background: '#fff', borderRadius: '6px', border: '1px solid #ddd' }}>
+                                    <h5 style={{ color: '#1b5e20', margin: '0 0 0.5rem 0' }}>AI Suggestions for Alternatives:</h5>
+                                    <ul style={{ paddingLeft: '1.5rem', margin: 0, color: '#333' }}>
+                                        {ecoSuggestions.map((sugg, idx) => (
+                                            <li key={idx} style={{ marginBottom: '0.5rem' }}>
+                                                <strong>{sugg.material}</strong>: {sugg.reason}
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </div>
+                            )}
                         </div>
                     )}
                 </div>

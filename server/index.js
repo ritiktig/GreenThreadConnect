@@ -11,6 +11,7 @@ const analyticsRoute = require('./routes/analytics');
 const predictRoute = require('./routes/predict');
 console.log("Loading AI Route...");
 const aiRoute = require('./routes/ai');
+const paymentsRoute = require('./routes/payments');
 console.log("AI Route Loaded");
 
 const app = express();
@@ -28,6 +29,7 @@ app.use('/api/orders', orderRoute);
 app.use('/api/analytics', analyticsRoute);
 app.use('/api/predict', predictRoute);
 app.use('/api/ai', aiRoute);
+app.use('/api/payments', paymentsRoute);
 
 // Database Connection
 const MONGODB_URI = process.env.MONGODB_URI;

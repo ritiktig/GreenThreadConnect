@@ -1,6 +1,13 @@
 const router = require('express').Router();
 const Product = require('../models/Product');
 const User = require('../models/User');
+var ImageKit = require("imagekit");
+
+var imagekit = new ImageKit({
+    publicKey : process.env.IMAGEKIT_PUBLIC_KEY || "YOUR_IMAGEKIT_PUBLIC_KEY",
+    privateKey : process.env.IMAGEKIT_PRIVATE_KEY || "YOUR_IMAGEKIT_PRIVATE_KEY",
+    urlEndpoint : process.env.IMAGEKIT_URL_ENDPOINT || "YOUR_IMAGEKIT_URL_ENDPOINT"
+});
 
 // Get All Products
 router.get('/', async (req, res) => {
@@ -16,11 +23,33 @@ router.get('/', async (req, res) => {
 // Add Product
 router.post('/', async (req, res) => {
     try {
-        const newProduct = new Product(req.body);
+        let productData = { ...req.body };
+        
+        // If imageUrl exists and is a base64 string, upload to ImageKit
+        if (productData.imageUrl && productData.imageUrl.startsWith('data:image')) {
+            try {
+                const uploadResponse = await imagekit.upload({
+                    file: productData.imageUrl, // base64 string
+                    fileName: `product_${Date.now()}.jpg`,
+                    folder: "/GreenThreadConnect"
+                });
+                // Replace the heavy base64 string with the fast global URL
+                if (uploadResponse && uploadResponse.url) {
+                    productData.imageUrl = uploadResponse.url;
+                }
+            } catch (ikErr) {
+                console.error("ImageKit Upload Error (Failing Gracefully to Base64):", ikErr);
+                // We DO NOT return a 500 here anymore. We just let it continue 
+                // so it saves the original base64 string to MongoDB instead!
+            }
+        }
+
+        const newProduct = new Product(productData);
         const savedProduct = await newProduct.save();
         res.status(201).json(savedProduct);
     } catch (err) {
-        res.status(500).json(err);
+        console.error("Product Creation Error:", err);
+        res.status(500).json({ error: "Failed to create product", details: err });
     }
 });
 

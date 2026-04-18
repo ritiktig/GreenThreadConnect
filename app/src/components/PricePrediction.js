@@ -28,7 +28,7 @@ function PricePrediction() {
     setResult(null);
 
     try {
-      const response = await axios.post('/api/predict', formData);
+      const response = await axios.post('/api/ai/predict-price', formData);
       setResult(response.data.predicted_price);
     } catch (err) {
       console.error(err);

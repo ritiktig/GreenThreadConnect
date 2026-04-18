@@ -1,7 +1,9 @@
 requests
 beautifulsoup4
 pandas
+flask
 flask-cors
 numpy
 scikit-learn
 joblib
+gunicorn

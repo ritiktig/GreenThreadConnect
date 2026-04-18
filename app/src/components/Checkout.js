@@ -53,6 +53,56 @@ function Checkout({ cart, setCart }) {
     }
   };
 
+  const loadRazorpay = () => {
+    return new Promise((resolve) => {
+        const script = document.createElement("script");
+        script.src = "https://checkout.razorpay.com/v1/checkout.js";
+        script.onload = () => {
+            resolve(true);
+        };
+        script.onerror = () => {
+            resolve(false);
+        };
+        document.body.appendChild(script);
+    });
+};
+
+  const saveOrderToDB = async () => {
+      try {
+          // Create Order Payload
+          const items = cart.map(item => ({
+              product: item._id,
+              quantity: item.quantity || 1, 
+              price: item.price
+          }));
+
+          const totalAmount = cart.reduce((sum, item) => sum + (item.price * (item.quantity || 1)), 0);
+          const addressString = `${selectedAddress.street}, ${selectedAddress.city}, ${selectedAddress.state} ${selectedAddress.zipCode}`;
+
+          const payload = {
+              buyer: user.id || user._id, // Ensure we get the ID
+              items: items,
+              totalAmount: totalAmount,
+              shippingAddress: addressString,
+              paymentMethod: paymentMethod, 
+              status: paymentMethod === 'COD' ? 'Pending' : 'Paid'
+          };
+
+          console.log('🛒 Placing Order with Payload:', payload);
+
+          await axios.post('/api/orders', payload);
+
+          setCart([]); // Clear cart
+          alert('Order Placed Successfully!');
+          navigate('/buyer/history');
+      } catch (err) {
+          console.error(err);
+          alert('Order Failed');
+      } finally {
+          setLoading(false);
+      }
+  };
+
   const handlePlaceOrder = async () => {
      if (!selectedAddress) {
          alert('Please select an address');
@@ -64,38 +114,83 @@ function Checkout({ cart, setCart }) {
      }
 
      setLoading(true);
-     try {
-         // Create Order Payload
-         const items = cart.map(item => ({
-             product: item._id,
-             quantity: item.quantity || 1, 
-             price: item.price
-         }));
 
-         const totalAmount = cart.reduce((sum, item) => sum + (item.price * (item.quantity || 1)), 0);
-         const addressString = `${selectedAddress.street}, ${selectedAddress.city}, ${selectedAddress.state} ${selectedAddress.zipCode}`;
+     if (paymentMethod === 'COD') {
+         await saveOrderToDB();
+     } else {
+         // Razorpay Flow
+         try {
+             const res = await loadRazorpay();
+             if (!res) {
+                 alert("Razorpay SDK failed to load. Are you online?");
+                 setLoading(false);
+                 return;
+             }
+             
+             const totalAmount = cart.reduce((sum, item) => sum + (item.price * (item.quantity || 1)), 0);
+             
+             // 1. Create Order on Backend
+             const result = await axios.post('/api/payments/order', { amount: totalAmount });
+             if (!result.data || !result.data.id) {
+                 alert("Server error. Please check backend.");
+                 setLoading(false);
+                 return;
+             }
 
-         const payload = {
-             buyer: user.id || user._id, // Ensure we get the ID
-             items: items,
-             totalAmount: totalAmount,
-             shippingAddress: addressString,
-             paymentMethod: paymentMethod, // Added payment method
-             status: 'Paid'
-         };
+             const backendOrder = result.data;
 
-         console.log('🛒 Placing Order with Payload:', payload);
+             // 2. Initialize Razorpay Modal
+             const options = {
+                 key: process.env.REACT_APP_RAZORPAY_KEY_ID || "rzp_test_DUMMY", // Replace with your Test Key ID
+                 amount: backendOrder.amount, // amount in paisa
+                 currency: backendOrder.currency,
+                 name: "Green Thread Connect",
+                 description: "Test Transaction",
+                 order_id: backendOrder.id,
+                 handler: async function (response) {
+                     try {
+                         // 3. Verify Signature
+                         const verifyUrl = "/api/payments/verify";
+                         const verifyPayload = {
+                             razorpay_order_id: response.razorpay_order_id,
+                             razorpay_payment_id: response.razorpay_payment_id,
+                             razorpay_signature: response.razorpay_signature,
+                         };
+                         const verifyRes = await axios.post(verifyUrl, verifyPayload);
+                         
+                         if(verifyRes.status === 200) {
+                             // Signature verified, save order to DB
+                             await saveOrderToDB();
+                         }
+                     } catch (err) {
+                         console.error(err);
+                         alert("Payment Verification Failed!");
+                     }
+                 },
+                 prefill: {
+                     name: user.name || "Test User",
+                     email: user.email || "test@example.com",
+                     contact: "9999999999",
+                     method: paymentMethod === 'UPI' ? 'upi' : 'card'
+                 },
+                 theme: {
+                     color: "#27ae60",
+                 },
+             };
 
-         await axios.post('/api/orders', payload);
+             const paymentObject = new window.Razorpay(options);
+             paymentObject.open();
+             setLoading(false); // Modal takes over
+             
+             paymentObject.on('payment.failed', function (response){
+                  alert("Payment Failed: " + response.error.description);
+             });
 
-         setCart([]); // Clear cart
-         alert('Order Placed Successfully!');
-         navigate('/buyer/history');
-     } catch (err) {
-         console.error(err);
-         alert('Order Failed');
-     } finally {
-         setLoading(false);
+         } catch (err) {
+             console.error("Payment Flow Error:", err);
+             alert("Something went wrong with the payment gateway.");
+             setLoading(false);
+         }
      }
   };
 

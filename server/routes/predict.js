@@ -1,4 +1,7 @@
 const router = require('express').Router();
+const axios = require('axios');
+
+const ML_URL = process.env.ML_BACKEND_URL || 'http://localhost:5000';
 
 // Carbon Emission Prediction
 router.post('/carbon', async (req, res) => {
@@ -18,26 +21,30 @@ router.post('/carbon', async (req, res) => {
     }
 
     try {
-        // Implement the carbon calculation logic directly in JavaScript
-        // This mirrors the logic in api/carbon.py to avoid recursive calls and Python dependency for basic calculation
-        
-        let prediction_value = 0;
-        
-        // Basic calculation based on the python model's fallback logic
-        // prediction_value = (material_quantity_kg * 2.5) + (energy_used_kwh * 0.4)
-        
+        // Attempt to call the actual ML model running on Python
+        try {
+            const mlResponse = await axios.post(`${ML_URL}/predict-carbon`, req.body);
+            if (mlResponse.data && mlResponse.data.carbon_emission !== undefined) {
+                console.log(`✅ [Carbon Predict] Successfully used Python ML Model! Prediction: ${mlResponse.data.carbon_emission}`);
+                return res.json({
+                    carbon_emission: mlResponse.data.carbon_emission,
+                    source: "ml_model"
+                });
+            }
+        } catch (mlError) {
+            console.warn("ML Model request failed. Falling back to simple JS math logic:", mlError.message);
+        }
+
+        // Fallback Javascript Logic
         const mat_qty = parseFloat(material_quantity_kg) || 0;
         const energy = parseFloat(energy_used_kwh) || 0;
         
-        prediction_value = (mat_qty * 2.5) + (energy * 0.4);
+        let prediction_value = (mat_qty * 2.5) + (energy * 0.4);
         
-        // Add some small variance based on other factors to make it slightly more dynamic if needed, 
-        // but for now strict adherence to the fallback logic is safest.
-        
-        // Send response
+        console.log(`⚠️ [Carbon Predict] Using JS Math Fallback Formula! Prediction: ${prediction_value}`);
         res.json({
             carbon_emission: prediction_value, 
-            source: "javascript_logic"
+            source: "javascript_fallback"
         });
 
     } catch (error) {

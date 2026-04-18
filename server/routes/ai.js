@@ -145,6 +145,27 @@ async function analyzeImageWithFallback(prompt, base64Data) {
     throw lastError || new Error("All image models failed");
 }
 
+// Helper function for Text Analysis
+async function generateTextWithFallback(prompt) {
+    const models = ["gemini-3-flash-preview", "gemini-2.0-flash-001", "gemini-1.5-flash", "gemini-1.5-pro"];
+    let lastError = null;
+
+    for (const modelName of models) {
+        try {
+            console.log(`Trying text model: ${modelName}`);
+            const model = genAI.getGenerativeModel({ model: modelName });
+            
+            const result = await model.generateContent(prompt);
+            const response = await result.response;
+            return response.text();
+        } catch (err) {
+            console.warn(`Model ${modelName} failed:`, err.message);
+            lastError = err;
+        }
+    }
+    throw lastError || new Error("All text models failed");
+}
+
 // Endpoint for Image Analysis (Seller Add Product)
 router.post('/analyze-image', async (req, res) => {
     console.log(`[${new Date().toISOString()}] Analyze Image Request Received`);
@@ -190,6 +211,90 @@ router.post('/analyze-image', async (req, res) => {
 
     } catch (error) {
         console.error("Analyze Image Error:", error);
+        res.status(500).json({ error: error.message });
+    }
+});
+
+// Endpoint for Eco-Friendly Material Suggestions
+router.post('/suggest-eco-materials', async (req, res) => {
+    try {
+        const { productName, currentMaterial, carbonFootprint } = req.body;
+        
+        const prompt = `
+        The user is creating a product named "${productName}" using "${currentMaterial}". 
+        The estimated carbon footprint for making this product is ${carbonFootprint} kg CO2e.
+        Suggest 3 specific eco-friendly, sustainable alternative materials they could use to lower the carbon footprint.
+        
+        Output JSON ONLY exactly like this format:
+        {
+            "suggestions": [
+                {
+                    "material": "Name",
+                    "reason": "Why it's better"
+                }
+            ]
+        }
+        `;
+
+        const text = await generateTextWithFallback(prompt);
+        let jsonResponse;
+        try {
+            const cleanedText = text.replace(/```json/g, '').replace(/```/g, '').trim();
+            jsonResponse = JSON.parse(cleanedText);
+        } catch (e) {
+            console.error("Failed to parse JSON:", text);
+            return res.status(500).json({ error: "Failed to parse AI response" });
+        }
+
+        res.json(jsonResponse);
+    } catch (error) {
+        console.error("Suggest Materials Error:", error);
+        res.status(500).json({ error: error.message });
+    }
+});
+
+// Endpoint for Price Prediction via Text Input
+router.post('/predict-price', async (req, res) => {
+    try {
+        const { product_name, material, category, region, size_cm, weight_g, description_keywords } = req.body;
+        
+        let prompt = `
+        You are an expert artisan market appraiser.
+        Predict a fair and competitive price in INR (Indian Rupees) for the following handmade/artisan product:
+        - Product Name: ${product_name || 'Unknown'}
+        - Material: ${material || 'Unknown'}
+        - Category: ${category || 'Unknown'}
+        - Region/Origin: ${region || 'Unknown'}
+        - Size (cm): ${size_cm || 'Unknown'}
+        - Weight (g): ${weight_g || 'Unknown'}
+        - Features/Keywords: ${description_keywords || 'None'}
+        
+        Analyze the factors and return a JSON strictly containing a "predicted_price" as a number.
+        Output JSON ONLY exactly like this format:
+        {
+            "predicted_price": 1250
+        }
+        `;
+
+        const text = await generateTextWithFallback(prompt);
+        let jsonResponse;
+        try {
+            const cleanedText = text.replace(/```json/g, '').replace(/```/g, '').trim();
+            jsonResponse = JSON.parse(cleanedText);
+            
+            // Ensure predicted_price is a number
+            if (!jsonResponse.predicted_price || isNaN(jsonResponse.predicted_price)) {
+                 throw new Error("Invalid price returned from model");
+            }
+        } catch (e) {
+            console.error("Failed to parse JSON for price:", text);
+            // Default fallback if parsing fails
+            jsonResponse = { predicted_price: 500 }; 
+        }
+
+        res.json(jsonResponse);
+    } catch (error) {
+        console.error("Predict Price Error:", error);
         res.status(500).json({ error: error.message });
     }
 });

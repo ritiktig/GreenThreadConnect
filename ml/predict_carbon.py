@@ -39,20 +39,14 @@ def get_handmade_score(prod_type):
         return 0.0
     return 0.5
 
-def predict():
+def predict(data):
     try:
-        # Read input
-        input_data = sys.stdin.read()
-        if not input_data:
-            print(json.dumps({"error": "No input data provided"}))
-            return
-
-        data = json.loads(input_data)
+        if not data:
+            return {"error": "No input data provided"}
         
         # Load artifacts
         if not os.path.exists(MODEL_PATH) or not os.path.exists(SCALER_PATH):
-             print(json.dumps({"error": "Model or Scaler not found"}))
-             return
+             return {"error": "Model or Scaler not found"}
 
         model = joblib.load(MODEL_PATH)
         scaler = joblib.load(SCALER_PATH)
@@ -168,12 +162,18 @@ def predict():
         # Predict
         prediction = model.predict(X_final)
         
-        print(json.dumps({"carbon_emission": prediction[0]}))
+        return {"carbon_emission": prediction[0]}
 
     except Exception as e:
         import traceback
         error_msg = {"error": str(e), "trace": traceback.format_exc().splitlines()[-1]}
-        print(json.dumps(error_msg))
+        return error_msg
 
 if __name__ == "__main__":
-    predict()
+    import sys
+    import json
+    input_data = sys.stdin.read()
+    if input_data:
+        print(json.dumps(predict(json.loads(input_data))))
+    else:
+        print(json.dumps({"error": "No input"}))
