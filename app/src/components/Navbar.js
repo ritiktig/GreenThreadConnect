@@ -45,7 +45,6 @@ function Navbar({ role, cartCount }) {
           <Link to="/" className="nav-link" onClick={closeMobileMenu}>Home</Link>
           <Link to="/marketplace" className="nav-link" onClick={closeMobileMenu}>Reels</Link>
           <Link to="/marketplace" className="nav-link" onClick={closeMobileMenu}>Marketplace</Link>
-          <Link to="/marketplace" className="nav-link" onClick={closeMobileMenu}>Auctions</Link>
 
           {/* Role Specific */}
           {isLoggedIn && role && role.toLowerCase() === 'buyer' && (

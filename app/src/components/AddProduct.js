@@ -281,7 +281,7 @@ function AddProduct() {
             
             {prediction && (
                 <div style={{ marginTop: '1rem', paddingTop: '1rem', borderTop: '1px solid #b3e5fc' }}>
-                     <p style={{ color: '#2E7D32', marginBottom: '0.5rem' }}><strong>Suggested Price:</strong> ${Number(prediction).toFixed(2)}</p>
+                     <p style={{ color: '#2E7D32', marginBottom: '0.5rem' }}><strong>Suggested Price:</strong> {symbol}{Number(prediction).toFixed(2)}</p>
                 </div>
             )}
         </div>
