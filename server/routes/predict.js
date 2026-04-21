@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const axios = require('axios');
 
-const ML_URL = process.env.ML_BACKEND_URL || 'http://localhost:5000';
+const ML_URL = process.env.ML_BACKEND_URL || 'http://localhost:5001';
 
 // Carbon Emission Prediction
 router.post('/carbon', async (req, res) => {
@@ -15,8 +15,10 @@ router.post('/carbon', async (req, res) => {
         production_type 
     } = req.body;
 
-    // Validate inputs
-    if (!material_quantity_kg || !energy_used_kwh || !transport_distance_km || !product_weight_kg || !recycled_material_percent || !primary_material || !production_type) {
+    // Validate inputs (Allow 0 as a valid number)
+    const requiredFields = [material_quantity_kg, energy_used_kwh, transport_distance_km, product_weight_kg, recycled_material_percent, primary_material, production_type];
+    
+    if (requiredFields.some(field => field === undefined || field === null || field === '' || Number.isNaN(field))) {
         return res.status(400).json({ error: "Missing required fields for carbon prediction" });
     }
 
