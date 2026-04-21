@@ -96,7 +96,7 @@ function Home() {
                     {previewProducts.length > 0 ? previewProducts.map(product => (
                         <div key={product._id} className="preview-card" onClick={() => navigate('/marketplace')}>
                             <div className="preview-img-wrapper">
-                                <img src={product.imageUrl || 'https://via.placeholder.com/300'} alt={product.name} />
+                                <img src={product.imageUrl || 'https://via.placeholder.com/300'} alt={product.name} loading="lazy" />
                             </div>
                             <div className="preview-info">
                                 <h3>{product.name}</h3>

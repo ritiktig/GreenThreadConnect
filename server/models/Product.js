@@ -6,12 +6,12 @@ const productSchema = new mongoose.Schema({
     material: { type: String },
     dimensions: { type: String },
     region: { type: String },
-    category: { type: String },
-    price: { type: Number, required: true },
+    category: { type: String, index: true },
+    price: { type: Number, required: true, index: true },
     stock: { type: Number, default: 1 },
     sustainabilityRating: { type: Number, min: 1, max: 5 },
     imageUrl: { type: String }, // Base64 or URL
-    seller: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
+    seller: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true, index: true },
     carbonFootprint: { type: Number },
     createdAt: { type: Date, default: Date.now }
 });

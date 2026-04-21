@@ -12,9 +12,23 @@ var imagekit = new ImageKit({
 // Get All Products
 router.get('/', async (req, res) => {
     try {
-        // Populate seller to get name
-        const products = await Product.find().populate('seller', 'name email region');
-        res.status(200).json(products);
+        const page = parseInt(req.query.page) || 1;
+        const limit = parseInt(req.query.limit) || 20;
+        const skip = (page - 1) * limit;
+
+        // Populate seller to get name, add pagination
+        const products = await Product.find()
+            .skip(skip)
+            .limit(limit)
+            .populate('seller', 'name email region');
+            
+        const totalProducts = await Product.countDocuments();
+
+        res.status(200).json({
+            products,
+            totalPages: Math.ceil(totalProducts / limit),
+            currentPage: page
+        });
     } catch (err) {
         res.status(500).json(err);
     }

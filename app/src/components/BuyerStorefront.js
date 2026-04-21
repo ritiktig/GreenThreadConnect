@@ -14,23 +14,33 @@ function BuyerStorefront({ addToCart }) {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedProduct, setSelectedProduct] = useState(null);
 
-  // Mock Data Loading
+  // Pagination states
+  const [page, setPage] = useState(1);
+  const [hasMore, setHasMore] = useState(true);
+
+  // Data Loading
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await axios.get('/api/products');
-        setProducts(response.data);
-        // Simple mock recommendation logic based on fetched data
-        if (response.data.length > 0) {
-            setRecommendations(response.data.slice(0, 2));
+        const response = await axios.get(`/api/products?page=${page}&limit=12`);
+        
+        if (page === 1) {
+            setProducts(response.data.products);
+            if (response.data.products?.length > 0) {
+                setRecommendations(response.data.products.slice(0, 2));
+            }
+        } else {
+            setProducts(prev => [...prev, ...response.data.products]);
         }
+        
+        setHasMore(page < response.data.totalPages);
       } catch (error) {
         console.error('Error fetching products:', error);
       }
     };
 
     fetchProducts();
-  }, []);
+  }, [page]);
 
   const filteredProducts = products.filter(p => {
     const matchesCategory = category === 'All' || p.category === category;
@@ -79,7 +89,7 @@ function BuyerStorefront({ addToCart }) {
                 <div key={`rec-${prod._id}`} className="store-card" onClick={() => setSelectedProduct(prod)}>
                   <div className="store-card-img-wrapper">
                     <div className="badge-overlay">Top Pick</div>
-                    <img src={prod.imageUrl || 'https://via.placeholder.com/300'} alt={prod.name} className="store-card-img" />
+                    <img src={prod.imageUrl || 'https://via.placeholder.com/300'} alt={prod.name} loading="lazy" className="store-card-img" />
                   </div>
                   <div className="store-card-content">
                     <h4>{prod.name}</h4>
@@ -103,7 +113,7 @@ function BuyerStorefront({ addToCart }) {
             {filteredProducts.map(prod => (
               <div key={prod._id} className="store-card" onClick={() => setSelectedProduct(prod)}>
                  <div className="store-card-img-wrapper">
-                    <img src={prod.imageUrl || 'https://via.placeholder.com/300'} alt={prod.name} className="store-card-img" />
+                    <img src={prod.imageUrl || 'https://via.placeholder.com/300'} alt={prod.name} loading="lazy" className="store-card-img" />
                   </div>
                   <div className="store-card-content">
                     <h4>{prod.name}</h4>
@@ -117,6 +127,18 @@ function BuyerStorefront({ addToCart }) {
               </div>
             ))}
           </div>
+
+          {hasMore && filteredProducts.length > 0 && (
+              <div style={{ textAlign: 'center', marginTop: '3rem' }}>
+                 <button 
+                    onClick={() => setPage(p => p + 1)} 
+                    className="add-btn" 
+                    style={{ padding: '0.8rem 2rem', fontSize: '1.1rem', width: 'auto' }}
+                 >
+                    Load More Products
+                 </button>
+              </div>
+          )}
         </section>
       </div>
 

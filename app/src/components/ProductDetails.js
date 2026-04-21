@@ -38,6 +38,7 @@ function ProductDetails({ product, onClose, onAddToCart }) {
           <img 
             src={product.imageUrl || 'https://via.placeholder.com/500'} 
             alt={product.name} 
+            loading="lazy"
             className="details-image" 
           />
         </div>
