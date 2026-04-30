@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import './AIBot.css';
 import { FaMicrophone, FaPaperPlane, FaRobot, FaTimes, FaVolumeUp, FaVolumeMute } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 const AIBot = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -69,16 +70,12 @@ const AIBot = () => {
         setInputText('');
 
         try {
-            const response = await fetch('/api/ai/chat', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ 
-                    message: text,
-                    history: messages.slice(-5) // Send last 5 messages for context
-                })
+            const response = await axios.post('/api/ai/chat', { 
+                message: text,
+                history: messages.slice(-5) // Send last 5 messages for context
             });
 
-            const data = await response.json();
+            const data = response.data;
             
             // Bot Message
             const botMsg = { sender: 'bot', text: data.message || "I didn't catch that." };
