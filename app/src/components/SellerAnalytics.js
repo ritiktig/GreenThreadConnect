@@ -102,11 +102,11 @@ function SellerAnalytics() {
         </div>
 
         <div className="chart-wrapper">
-            <h3>Market Price Comparison ({symbol})</h3>
+            <h3>Internal Price Comparison ({symbol})</h3>
             <ResponsiveContainer width="100%" height={300}>
                 <BarChart data={convertedData.marketComparison || []}>
                     <CartesianGrid strokeDasharray="3 3" />
-                    <XAxis dataKey="platform" />
+                    <XAxis dataKey="segment" />
                     <YAxis />
                     <Tooltip formatter={(value) => `${symbol}${value}`} />
                     <Legend />

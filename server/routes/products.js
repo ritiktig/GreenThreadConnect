@@ -77,6 +77,20 @@ router.get('/seller/:sellerId', async (req, res) => {
     }
 });
 
+// Get Single Product
+router.get('/:id', async (req, res) => {
+    try {
+        const product = await Product.findById(req.params.id).populate('seller', 'name email region');
+        if (!product) {
+            return res.status(404).json({ message: "Product not found" });
+        }
+        res.status(200).json(product);
+    } catch (err) {
+        console.error("Error fetching single product:", err);
+        res.status(500).json(err);
+    }
+});
+
 // Update Product
 router.patch('/:id', async (req, res) => {
     try {

@@ -11,7 +11,7 @@ router.post('/getSalesInsights', async (req, res) => {
         console.log("Fetching analytics for seller:", sellerId);
         
         // 1. Find all products by this seller
-        const sellerProducts = await Product.find({ seller: sellerId }).select('_id category carbonFootprint');
+        const sellerProducts = await Product.find({ seller: sellerId }).select('_id category carbonFootprint price');
         const sellerProductIds = sellerProducts.map(p => p._id.toString());
         
         // Map for quick lookup of product details
@@ -102,15 +102,52 @@ router.post('/getSalesInsights', async (req, res) => {
             value: categorySales[category]
         }));
 
+        // --- Internal Price Comparison Logic ---
+        // 1. Your Average Price
+        const myAvgPrice = sellerProducts.length > 0 
+            ? sellerProducts.reduce((acc, p) => acc + (p.price || 0), 0) / sellerProducts.length 
+            : 0;
+
+        // 2. Platform Average Price (in seller's categories)
+        const sellerCategories = [...new Set(sellerProducts.map(p => p.category).filter(Boolean))];
+        let platformAvgPrice = 0;
+        let topSellerAvgPrice = 0;
+
+        if (sellerCategories.length > 0) {
+            const platformProducts = await Product.find({ category: { $in: sellerCategories } }).select('price');
+            platformAvgPrice = platformProducts.length > 0
+                ? platformProducts.reduce((acc, p) => acc + (p.price || 0), 0) / platformProducts.length
+                : myAvgPrice;
+
+            // 3. Top Seller Average Price (in seller's categories)
+            // Find top selling products by aggregating orders
+            const topProductsAgg = await Order.aggregate([
+                { $unwind: "$items" },
+                { $group: { _id: "$items.product", totalSold: { $sum: "$items.quantity" } } },
+                { $sort: { totalSold: -1 } },
+                { $limit: 20 }
+            ]);
+            const topProductIds = topProductsAgg.map(p => p._id);
+
+            const topProducts = await Product.find({ 
+                _id: { $in: topProductIds }, 
+                category: { $in: sellerCategories } 
+            }).select('price');
+
+            topSellerAvgPrice = topProducts.length > 0
+                ? topProducts.reduce((acc, p) => acc + (p.price || 0), 0) / topProducts.length
+                : platformAvgPrice;
+        }
+
         const data = {
             totalEarnings: totalEarnings,
             productsSold: productsSold,
             monthlySales: monthlySales,
             carbonEmissions: carbonEmissions,
             marketComparison: [
-                { platform: 'Amazon', price: 60 },
-                { platform: 'Etsy', price: 55 },
-                { platform: 'GreenThread', price: 45 }
+                { segment: 'Your Average', price: Math.round(myAvgPrice) },
+                { segment: 'Platform Avg', price: Math.round(platformAvgPrice) },
+                { segment: 'Top Sellers', price: Math.round(topSellerAvgPrice) }
             ],
             salesByCategory: salesByCategory
         };
