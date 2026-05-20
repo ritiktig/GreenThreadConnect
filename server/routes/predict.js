@@ -23,6 +23,7 @@ router.post('/carbon', authenticateToken, async (req, res) => {
         return res.status(400).json({ error: "Missing required fields for carbon prediction" });
     }
 
+    let mlErrorMsg = null;
     try {
         // Attempt to call the actual ML model running on Python
         try {
@@ -35,6 +36,7 @@ router.post('/carbon', authenticateToken, async (req, res) => {
                 });
             }
         } catch (mlError) {
+            mlErrorMsg = mlError.message;
             console.warn("ML Model request failed. Falling back to simple JS math logic:", mlError.message);
         }
 
@@ -47,7 +49,8 @@ router.post('/carbon', authenticateToken, async (req, res) => {
         console.log(`⚠️ [Carbon Predict] Using JS Math Fallback Formula! Prediction: ${prediction_value}`);
         res.json({
             carbon_emission: prediction_value, 
-            source: "javascript_fallback"
+            source: "javascript_fallback",
+            error: mlErrorMsg
         });
 
     } catch (error) {
