@@ -57,11 +57,14 @@ function AddProduct() {
              setCarbonResult(response.data.carbon_emission);
              setEcoSuggestions(null); // Reset suggestions when fetching a new calc
              
-             // Debug alert to see where the prediction came from
+             // Log to console instead of showing alert popups
              if (response.data.source === 'ml_model') {
-                 alert('✅ Success: Predicted using the Python ML Model!');
+                 console.log('✅ Success: Predicted using the Python ML Model!');
              } else {
-                 alert('⚠️ Warning: Python ML failed. Used JS Math fallback instead.');
+                 console.log('Prediction done by the JavaScript.');
+                 if (response.data.error) {
+                     console.log('Backend ML Connection Error:', response.data.error);
+                 }
              }
         }
     } catch (error) {
