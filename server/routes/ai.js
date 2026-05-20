@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const { GoogleGenerativeAI } = require("@google/generative-ai");
+const { authenticateToken, authorizeRoles } = require('../middleware/auth');
 console.log("------------------------ LOADED ROUTES/AI.JS ------------------------");
 
 // Initialize Gemini
@@ -167,7 +168,7 @@ async function generateTextWithFallback(prompt) {
 }
 
 // Endpoint for Image Analysis (Seller Add Product)
-router.post('/analyze-image', async (req, res) => {
+router.post('/analyze-image', authenticateToken, authorizeRoles('seller'), async (req, res) => {
     console.log(`[${new Date().toISOString()}] Analyze Image Request Received`);
     try {
         const { image } = req.body; 
@@ -211,12 +212,12 @@ router.post('/analyze-image', async (req, res) => {
 
     } catch (error) {
         console.error("Analyze Image Error:", error);
-        res.status(500).json({ error: error.message });
+        res.status(500).json({ error: "Failed to analyze image" });
     }
 });
 
 // Endpoint for Eco-Friendly Material Suggestions
-router.post('/suggest-eco-materials', async (req, res) => {
+router.post('/suggest-eco-materials', authenticateToken, authorizeRoles('seller'), async (req, res) => {
     try {
         const { productName, currentMaterial, carbonFootprint } = req.body;
         
@@ -249,12 +250,12 @@ router.post('/suggest-eco-materials', async (req, res) => {
         res.json(jsonResponse);
     } catch (error) {
         console.error("Suggest Materials Error:", error);
-        res.status(500).json({ error: error.message });
+        res.status(500).json({ error: "Failed to suggest eco-friendly materials" });
     }
 });
 
 // Endpoint for Price Prediction via Text Input
-router.post('/predict-price', async (req, res) => {
+router.post('/predict-price', authenticateToken, authorizeRoles('seller'), async (req, res) => {
     try {
         const { product_name, material, category, region, size_cm, weight_g, description_keywords } = req.body;
         
@@ -295,7 +296,7 @@ router.post('/predict-price', async (req, res) => {
         res.json(jsonResponse);
     } catch (error) {
         console.error("Predict Price Error:", error);
-        res.status(500).json({ error: error.message });
+        res.status(500).json({ error: "Failed to predict price" });
     }
 });
 

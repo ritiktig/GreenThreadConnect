@@ -32,13 +32,8 @@ function Home() {
         const fetchPreview = async () => {
             try {
                 const res = await axios.get('/api/products');
-                // Ensure data is array before slicing
-                if (Array.isArray(res.data)) {
-                    setPreviewProducts(res.data.slice(0, 3));
-                } else {
-                    console.warn("API did not return an array:", res.data);
-                    setPreviewProducts([]);
-                }
+                const productsArray = res.data?.products || (Array.isArray(res.data) ? res.data : []);
+                setPreviewProducts(productsArray.slice(0, 3));
             } catch (err) {
                 console.error("Failed to fetch preview products", err);
                 setPreviewProducts([]);

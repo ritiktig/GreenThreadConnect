@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const Razorpay = require('razorpay');
 const crypto = require('crypto');
+const { authenticateToken, authorizeRoles } = require('../middleware/auth');
 
 // Setup Razorpay using environment variables (Fallback dummy keys for safety if env not set)
 const razorpay = new Razorpay({
@@ -9,7 +10,7 @@ const razorpay = new Razorpay({
 });
 
 // Route: Create an Order
-router.post('/order', async (req, res) => {
+router.post('/order', authenticateToken, authorizeRoles('buyer'), async (req, res) => {
     try {
         const { amount } = req.body; // Amount should be in smaller denomination if required, depending on UI format.
         // Razorpay expects amount in paise (multiply by 100 for INR)
@@ -26,12 +27,12 @@ router.post('/order', async (req, res) => {
         res.json(order);
     } catch (error) {
         console.error("Error creating razorpay order:", error);
-        res.status(500).send(error);
+        res.status(500).json({ message: "Failed to create payment order" });
     }
 });
 
 // Route: Verify Payment Signature
-router.post('/verify', async (req, res) => {
+router.post('/verify', authenticateToken, authorizeRoles('buyer'), async (req, res) => {
     try {
         const {
             razorpay_order_id,

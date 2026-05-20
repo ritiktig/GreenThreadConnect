@@ -1,13 +1,17 @@
 const router = require('express').Router();
-
 const Product = require('../models/Product');
 const Order = require('../models/Order');
+const { authenticateToken, authorizeRoles } = require('../middleware/auth');
 
-// Get Sales Insights (Real Data + Mock Trends)
 // Get Sales Insights (Real Data)
-router.post('/getSalesInsights', async (req, res) => {
+router.post('/getSalesInsights', authenticateToken, authorizeRoles('seller'), async (req, res) => {
     try {
         const { sellerId } = req.body;
+        
+        if (sellerId !== req.user.id) {
+            return res.status(403).json({ message: "Unauthorized access: seller ID mismatch" });
+        }
+
         console.log("Fetching analytics for seller:", sellerId);
         
         // 1. Find all products by this seller

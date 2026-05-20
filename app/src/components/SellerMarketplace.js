@@ -13,7 +13,7 @@ function SellerMarketplace({ addToCart }) {
   const fetchProducts = async () => {
     try {
       const res = await axios.get('/api/products');
-      setProducts(res.data);
+      setProducts(res.data.products || []);
     } catch (err) {
       console.error("Failed to fetch products", err);
     } finally {

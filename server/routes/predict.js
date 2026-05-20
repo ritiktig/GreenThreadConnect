@@ -1,10 +1,11 @@
 const router = require('express').Router();
 const axios = require('axios');
+const { authenticateToken } = require('../middleware/auth');
 
 const ML_URL = process.env.ML_BACKEND_URL || 'http://localhost:5001';
 
 // Carbon Emission Prediction
-router.post('/carbon', async (req, res) => {
+router.post('/carbon', authenticateToken, async (req, res) => {
     const { 
         material_quantity_kg, 
         energy_used_kwh, 
