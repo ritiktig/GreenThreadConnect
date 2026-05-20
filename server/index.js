@@ -27,7 +27,12 @@ app.use(mongoSanitize()); // Sanitize data to prevent NoSQL query injection atta
 // CORS Configuration
 const allowedOrigins = process.env.ALLOWED_ORIGINS 
   ? process.env.ALLOWED_ORIGINS.split(',') 
-  : ['http://localhost:3000', 'https://greenthread-connect.vercel.app', 'http://localhost:5173'];
+  : [
+      'http://localhost:3000', 
+      'https://greenthread-connect.vercel.app', 
+      'http://localhost:5173',
+      'https://greenthreadconnect-app.onrender.com'
+    ];
 
 app.use(cors({
     origin: (origin, callback) => {
